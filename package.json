@@ -1,11 +1,15 @@
 {
-  "name": "polimi-hyp-2017-boilerplate",
+  "name": "polimi-hyp-2017-project",
   "version": "1.0.0",
+  "description": "hypermedia website",
   "main": "index.js",
-  "repository": "https://polimi-hyp-2017-10173412@bitbucket.org/polimi-hyp-2017-10173412/polimi-hyp-2017-project.git",
-  "author": "Vittorio Zaccaria <vittorio.zaccaria@polimi.it>",
-  "engines": {
-    "node": ">= 7.5.0"
+  "scripts": {
+    "test": "test",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://polimi-hyp-2017-10481324@bitbucket.org/polimi-hyp-2017-team-10494309/polimi-hyp-2017-project.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -15,7 +19,10 @@
     "lodash": "4.17.4",
     "sqlite3": "^3.1.8"
   },
-  "scripts": {
-    "start": "node ./index.js"
-  }
+  "engines": {
+    "node": ">= 7.5.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/polimi-hyp-2017-team-10494309/polimi-hyp-2017-project#readme"
 }
