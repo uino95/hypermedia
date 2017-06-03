@@ -3,7 +3,7 @@
     "name": "Matteo",
     "surname": "Sinico",
     "locationId": 1,
-    "basicInfo": "Stupendo",
+    "basicInfo": "Il Prof. Sinico ha conseguito la Laurea in Medicina e Chirurgia con il massimo dei voti e la lode presso l'Università degli Studi di Firenze e si è specializzato in Ortopedia e Traumatologia presso lo stesso Ateneo. Durante la sua carriera ha avuto modo di lavorare in diverse Strutture: presso il C.T.O. (Centro Traumatologico Ortopedico) di Firenze; presso la Clinica Ortopedica dell’Università dove è stato allievo prediletto del Professor Piero Dini - Docente di Chirurgia Ortopedica - e successivamente ha assunto il ruolo di Direttore della Prima Clinica Ortopedica e della Scuola di Specializzazione. Il Prof. Colao è stato Medico Interno presso il Professor Viladot a Barcellona e presso il Professor Bousquet a Marsiglia. Ha svolto una Fellowship al New York Memorial For Special Surgery. Inoltre ha svolto il ruolo di Aiutante presso l’Ospedale di Grosseto per un breve periodo. Insieme alla sua equipe, il Prof. Colao applica nuove tecniche di impianto da cadavere e impianti con cellule staminali; tra l'altro effettua vari interventi di ricostruzione tendinea e legamentosa per lesioni della cuffia dei rotatori e dei crociati che viene eseguita con legamenti artificiali in microchirurgia.",
     "serviceId": 1,
     "isResponsible": 1
   },
@@ -11,9 +11,33 @@
     "name": "Emanuele",
     "surname": "Voltolini",
     "locationId": 2,
-    "basicInfo": "Metalhead",
+    "basicInfo": "Emanuele Voltolini ha iniziato il suo percorso frequentando la Scuola di Terapista della riabilitazione e conseguendo il Diploma nel 1998. Successivamente ha intrapreso la formazione in medicina osteopatica, ottenendo il Diploma nel 2004 presso l'AIOT di Pescara, presentando una tesi sul trattamento osteopatico dello strabismo. Negli anni seguenti ha quindi frequentato numerosi Corsi di approfondimento in ambito osteopatico anche all'estero (Stati Uniti, Francia, Belgio), arricchendo notevolmente le sue conoscenze. Durante tale percorso ha compreso che la migliore tecnica terapeutica è il lavoro su di sé, e quindi ha affiancato ai corsi di formazione professionale dei corsi di crescita personale. Negli anni ha allargato le sue competenze anche ad altri ambiti, in particolar modo ha ritenuto di approfondire le relazioni mente-corpo e la fisica quantistica. Il suo approccio si avvale perciò di tutti quegli strumenti che permettono di lavorare con l'individuo, considerato nella sua specificità e nel suo percorso.",
+    "serviceId": 1,
+    "isResponsible": 0
+  },
+  {
+    "name": "Andrea",
+    "surname": "Taglia",
+    "locationId": 2,
+    "basicInfo": "Il dottor Andrea Taglia si è laureata nel 1988 in Medicina e Chirurgia presso l'Università degli Studi di Roma La Sapienza, successivamente nel 1992 presso il medesimo Ateneo consegue la specializzazione in Radiodiagnostica e Scienza delle Immagini.",
     "serviceId": 2,
     "isResponsible": 0
+  },
+  {
+    "name": "Giovanni",
+    "surname": "Beri",
+    "locationId": 2,
+    "basicInfo": "Il Dott. Pizzoni si è laureato in Medicina e Chirurgia nel 1994 presso l'Università degli Studi di Perugia e ha conseguito la Specializzazione in Neurochirurgia nel 1999 presso l'Università degli Studi di Bari e in Neurologia nel 2014 presso lo stesso Ateneo. Attualmente il Dott. Pizzoni esercita la sua attività in libera professione intamoenia presso l'Ospedale Belcolle di Viterbo ed effettua visite a domicilio in tutto il territorio laziale.",
+    "serviceId": 3,
+    "isResponsible": 1
+  },
+  {
+    "name": "Enrica",
+    "surname": "Pittini",
+    "locationId": 2,
+    "basicInfo": "La dottoressa Pittini si è laureata in Medicina e Chirurgia a Novara e si è specializzato in Medicina Fisica e Riabilitativa con Lode presso l’Università degli Studi di Genova. Ha dedicato gran parte del suo percorso di studi e lavorativo alla Medicina Riabilitativa del dolore muscolo scheletrico. Ha partecipato al Master di II livello in tecniche manuali, posturali e infiltrative per la Riabilitazione presso l’Università di Roma La sapienza. Esegue numerosi trattamenti infiltrativi ecoguidati a livello della spalla, gomito, anca, ginocchio,caviglia, nella patologia tendinea cronica e acuta come la tendinopatia del tendine rotuleo, tendine di Achille e molte altre patologie. Ha partecipato anche al Master di II livello per l’Ossigeno-Ozonoterapia presso l’Università degli Studi di Pavia. Esegue l’Ozonoterapia per le patologie del rachide, quelle tendinee e osteo-articolari secondo le più recenti linee guida. Dal 2009 collabora strettamente con la S.C. Medicina Fisica e Riabilitativa Università del Piemonte Orientale di Novara come membro dell’equipe di Fisiatria Interventistica Ambulatoriale in ambito di ricerca e cura del dolore muscolo scheletrico. Ha lavorato come Medico Sociale tesserato per la Società U.C. Sampdoria, settore giovanile, nella stagione sportiva 2011/2012 ed è stato Medico consulente per Insuperabili Onlus Scuola Calcio per ragazzi disabili. Dal 2015 è Direttore presso il Centro di Fisioterapia Dr. Stagno, Centro di riferimento per la Fisioterapia e la Riabilitazione Ambulatoriale sul territorio Biellese da oltre 30 anni.",
+    "serviceId": 3,
+    "isResponsible": 1
   }
 ]
 

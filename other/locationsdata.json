@@ -2,11 +2,16 @@
   {
     "name": "Piubega",
     "basicInfo": "vanno forti sulla ginecologia",
-    "contacts": "331 289 0348"
+    "contacts": "piubega@pms.it"
   },
   {
     "name": "Mirandola",
+    "basicInfo": "Grande madre di tutto l'impero PMS. Detta come va detta, gli devono la vita",
+    "contacts": "mirandola@pms.it"
+  },
+  {
+    "name": "Siracusa",
     "basicInfo": "ci sono delle persone simpatiche",
-    "contacts": "3394146668"
+    "contacts": "siracusa@pms.it"
   }
 ]
