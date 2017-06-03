@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://polimi-hyp-2017-10481324@bitbucket.org/polimi-hyp-2017-team-10494309/polimi-hyp-2017-project.git"
   },
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "1.17.1",
     "express": "4.15.2",
@@ -23,6 +23,5 @@
     "node": ">= 7.5.0"
   },
   "author": "",
-  "license": "ISC",
   "homepage": "https://bitbucket.org/polimi-hyp-2017-team-10494309/polimi-hyp-2017-project#readme"
 }
