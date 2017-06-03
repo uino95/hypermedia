@@ -312,7 +312,8 @@
         App.init();
         //fetch data and populate page
         console.log("fetching data..");
-        fetch(`/doctors/5`)
+        let doctorid = +getAllUrlParams().doctorid;
+        fetch(`/doctors/` + doctorid)
             .then(function(response) {
                 return response.json();
             })
@@ -320,8 +321,11 @@
                 document.getElementById('doctorName').textContent = data[0].name;
                 document.getElementById('doctorSurname').textContent = data[0].surname;
                 document.getElementById('doctorBasicInfo').textContent = data[0].basicInfo;
+            }).catch(function(err) {
+                // Gets called if request fails, or even if .then fails
+                return badRequest();
             });
-        fetch(`/doctors/5`)
+        fetch(`/doctorsbyservice/` + doctorid)
             .then(function(response) {
                 return response.json();
             })
