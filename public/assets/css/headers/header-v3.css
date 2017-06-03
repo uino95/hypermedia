@@ -31,6 +31,7 @@
 .header-v3 .navbar-default {
 	border: none;
 	background: none;
+	background-color: #555555;
 }
 
 /*Navbar Brand*/
@@ -77,7 +78,7 @@
 
 /*Navbar Menu*/
 .header-v3 .navbar-default .navbar-nav > li > a {
-	color: #687074;
+	color: white;
 	font-size: 15px;
 	font-weight:400;
 	text-transform: uppercase;

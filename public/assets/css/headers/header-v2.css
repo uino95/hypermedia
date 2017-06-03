@@ -541,7 +541,7 @@ topbar including in mobile version*/
     right: 9px;
     font-size: 11px;
     content: "\f105";
-    position: absolute;
+    position: sticky;
     font-weight: normal;
     display: inline-block;
     font-family: FontAwesome;
