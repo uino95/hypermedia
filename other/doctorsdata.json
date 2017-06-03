@@ -2,10 +2,18 @@
   {
     "name": "Matteo",
     "surname": "Sinico",
-    "location": "Piubega",
+    "locationId": 1,
     "basicInfo": "Stupendo",
-    "service": "gynecology",
+    "serviceId": 1,
     "isResponsible": 1
+  },
+  {
+    "name": "Emanuele",
+    "surname": "Voltolini",
+    "locationId": 2,
+    "basicInfo": "Metalhead",
+    "serviceId": 2,
+    "isResponsible": 0
   }
 ]
 

@@ -3,5 +3,10 @@
     "name": "Gynecology",
     "description": "bello ma non ci vivrei",
     "treatment": "test"
+  },
+  {
+    "name": "Fisioterapia",
+    "description": "aggiusti la gente",
+    "treatment": "che non va più"
   }
 ]
