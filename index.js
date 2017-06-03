@@ -38,9 +38,9 @@ function initDoctorsTable() {
           table.increments("id").primary();
           table.string("name");
           table.string("surname");
-          table.string("location");
+          table.integer("locationId");
           table.string("basicInfo");
-          table.string("service");
+          table.integer("serviceId");
           table.boolean("isResponsible");
         })
         .then(() => {
@@ -113,12 +113,12 @@ function initServicesLocationsTable() {
       sqlDb.schema
         .createTable("servicesLocations", table => {
           // create the table
-          table.integer("idService");
-          table.integer("idLocation");
-          table.primary(["idService", "idLocation"]);
+          table.integer("serviceId");
+          table.integer("locationId");
+          table.primary(["serviceId", "locationId"]);
           // set both as foreign key
-          table.foreign("idService").references("services.id");
-          table.foreign("idLocation").references("locations.id");
+          table.foreign("serviceId").references("services.id");
+          table.foreign("locationId").references("locations.id");
         })
         .then(() => {
           return Promise.all(
@@ -167,38 +167,66 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Register REST entry points
 
-app.get("/doctors/:id", function(req, res) {
-	let myQuery = sqlDb("doctors");
-	myQuery.where("id",1);
-	myQuery.then(result => {
-		res.send(JSON.stringify(result));
-	})
+
+app.get("/doctors", function(req, res) {
+  let myQuery = sqlDb("doctors")
+    .then(result => {
+    res.send(JSON.stringify(result));
+  })
 })
 
-app.get("/locations/:id", function(req, res) {
-	let myQuery = sqlDb("locations");
-	myQuery.where("id",1);
-	myQuery.then(result => {
+app.get("/doctors/:id", function(req, res) {
+	let myQuery = sqlDb("doctors");
+	myQuery.where("id",req.params.id)
+    .then(result => {
 		res.send(JSON.stringify(result));
 	})
 })
 
 app.get("/services/:id", function(req, res) {
 	let myQuery = sqlDb("services");
-	myQuery.where("id",1);
-	myQuery.then(result => {
+	myQuery.where("id",req.params.id)
+    .then(result => {
 		res.send(JSON.stringify(result));
 	})
 })
 
-app.get("/servicesbylocations/:id", function(req, res) {
-	let myQuery = sqlDb("servicesLocations");
-	myQuery.where("idLocation",1);
-	myQuery.then(result => {
+app.get("/locations/:id", function(req, res) {
+  let myQuery = sqlDb("locations");
+  myQuery.where("id",req.params.id)
+    .then(result => {
+    res.send(JSON.stringify(result));
+  })
+})
+
+
+// retrieve doctors working in the service with the id passed as parameter
+app.get("/doctorsbyservice/:id", function(req,res) {
+  let myQuery = sqlDb("doctors");
+	myQuery.select().where("serviceId", req.params.id)
+    .then(result => {
+    res.send(JSON.stringify(result));
+  })
+})
+
+// get ids of the locations in which serviceId is present
+app.get("/locationsbyservice/:id", function(req, res) {
+  let myQuery = sqlDb("servicesLocations");
+  myQuery.select("locationId").where("serviceId",req.params.id)
+    .then(result => {
 		res.send(JSON.stringify(result));
 	})
 })
 
+
+// get ids of the services located in a location
+app.get("/servicesbylocation/:id", function(req, res) {
+  let myQuery = sqlDb("servicesLocations");
+  myQuery.select("serviceId").where("locationId",req.params.id)
+    .then(result => {
+    res.send(JSON.stringify(result));
+  })
+})
 
 /////////////////////////////////////////////
 /////////////////// INIT ////////////////////
@@ -214,14 +242,3 @@ initDb();
 app.listen(serverPort, function() {
   console.log(`Your app is ready at port ${serverPort}`);
 });
-
-/*
-
-/doctors
-/doctors/:id
-/services/:id 
-/doctorsbyservice/:id
-/locations/:id
-/servicesbylocations/:id 
-
-*/
