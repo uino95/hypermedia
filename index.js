@@ -8,6 +8,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const sqlDbFactory = require("knex");
 const _ = require("lodash");
+const process = require("process");
 
 
 /////////////////////////////////////////////
@@ -20,13 +21,37 @@ let locationsList = require("./other/locationsdata.json");
 let servicesList = require("./other/servicesdata.json");
 let servicesLocationsList = require("./other/serviceslocationsdata.json");
 
-const sqlDb = sqlDbFactory({
-  client: "sqlite3",
-  debug: true,
-  connection: {
-    filename: "./other/clinicdb.sqlite"
+// use it until testing
+process.env.TEST = true;
+
+let sqlDb;
+function initSqlDB() {
+  /* Locally we should launch the app with TEST=true to use SQLlite:
+
+       > TEST=true node ./index.js
+
+  */
+  // if I'm testing the application
+  if (process.env.TEST) {
+    console.log("test defined");
+    sqlDb = sqlDbFactory({
+      debug: true,
+      client: "sqlite3",
+      connection: {
+        filename: "./petsdb.sqlite"
+      }
+    });
+  // actual version of the db 
+  } else {
+    console.log("test NOT defined");
+    sqlDb = sqlDbFactory({
+      debug: true,
+      client: "pg",
+      connection: process.env.DATABASE_URL,
+      ssl: true
+    });
   }
-});
+}
 
 
 function initDoctorsTable() {
@@ -213,6 +238,7 @@ app.get("/doctorsbyservice/:id", function(req,res) {
   })
 })
 
+// MA VUOI ID O TUTTA LA LOCATION?
 // get ids of the locations in which serviceId is present
 app.get("/locationsbyservice/:id", function(req, res) {
   let myQuery = sqlDb("servicesLocations");
@@ -223,6 +249,7 @@ app.get("/locationsbyservice/:id", function(req, res) {
 })
 
 
+// MA VUOI ID O TUTTO IL SERVIZIO?
 // get ids of the services located in a location
 app.get("/servicesbylocation/:id", function(req, res) {
   let myQuery = sqlDb("servicesLocations");
@@ -240,6 +267,7 @@ let serverPort = process.env.PORT || 5000;
   
 app.set("port", serverPort);
 
+initSqlDB();
 initDb();
 
 /* Start the server on port 3000 */
