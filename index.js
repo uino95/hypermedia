@@ -33,17 +33,17 @@ function initSqlDB() {
   */
   // if I'm testing the application
   if (process.env.TEST) {
-    console.log("test defined");
+    // console.log("test mode");
     sqlDb = sqlDbFactory({
       debug: true,
       client: "sqlite3",
       connection: {
-        filename: "./petsdb.sqlite"
+        filename: "./other/clinicdb.sqlite"
       }
     });
   // actual version of the db 
   } else {
-    console.log("test NOT defined");
+    //console.log("non-test mode");
     sqlDb = sqlDbFactory({
       debug: true,
       client: "pg",
@@ -238,23 +238,24 @@ app.get("/doctorsbyservice/:id", function(req,res) {
   })
 })
 
-// MA VUOI ID O TUTTA LA LOCATION?
-// get ids of the locations in which serviceId is present
-app.get("/locationsbyservice/:id", function(req, res) {
-  let myQuery = sqlDb("servicesLocations");
-  myQuery.select("locationId").where("serviceId",req.params.id)
-    .then(result => {
-		res.send(JSON.stringify(result));
-	})
+
+// retrieve data of the services located in a certain location
+app.get("/servicesbylocation/:id", function(req, res) {
+  let myQuery = sqlDb.select().from("services").whereIn("id", function(){
+    this.select("serviceId").from("servicesLocations").where("locationId", req.params.id);
+  })
+  .then(result => {
+    res.send(JSON.stringify(result));
+  })
 })
 
 
-// MA VUOI ID O TUTTO IL SERVIZIO?
-// get ids of the services located in a location
-app.get("/servicesbylocation/:id", function(req, res) {
-  let myQuery = sqlDb("servicesLocations");
-  myQuery.select("serviceId").where("locationId",req.params.id)
-    .then(result => {
+// retrieve data of the locations in which a service (id) exist 
+app.get("/locationsbyservice/:id", function(req, res) {
+  let myQuery = sqlDb.select().from("locations").whereIn("id", function(){
+    this.select("locationId").from("servicesLocations").where("serviceId", req.params.id);
+  })
+  .then(result => {
     res.send(JSON.stringify(result));
   })
 })
