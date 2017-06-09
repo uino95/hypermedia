@@ -313,7 +313,7 @@
         //fetch data and populate page
         console.log("fetching data..");
         //apri con ?doctorid=4
-        let doctorid = +getAllUrlParams().doctorid;
+        let doctorid = getAllUrlParams().doctorid;
         fetch(`/doctors/` + doctorid)
             .then(function(response) {
                 return response.json();

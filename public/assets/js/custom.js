@@ -1,6 +1,4 @@
-function getAllUrlParams(url) {
-
-    // get query string from url (optional) or window
+function getAllUrlParams(url) { // get query string from url (optional) or window
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
 
     // we'll store the parameters here
@@ -60,7 +58,14 @@ function getAllUrlParams(url) {
     return obj;
 }
 
-function badRequest(){
+function badRequest() {
     console.log("bad request error. probably id fetch doesn't exit in db");
     window.location.href = "../../pages/page_404.html";
+}
+
+Array.prototype.contains = function(elem) {
+    for (var i in this) {
+        if (this[i] == elem) return true;
+    }
+    return false;
 }

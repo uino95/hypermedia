@@ -116,15 +116,14 @@
             <div class="row about-me">
                 <div class="col-sm-4 shadow-wrapper md-margin-bottom-40">
                     <div class="box-shadow shadow-effect-2">
-                        <img class="img-responsive img-bordered full-width" src="../assets/img/doctors/1.jpg" alt="">
+                        <img id="doctorImg" class="img-responsive img-bordered full-width" src="../assets/img/doctors/1.jpg" alt="">
                     </div>
                 </div>
 
                 <div class="col-sm-8">
                     <div class="overflow-h">
                         <div class="pull-left">
-                            <h2>John Watson</h2>
-                            <span>CEO, Director</span>
+                            <h2 id="doctorName"></h2>
                         </div>
                     </div>
                     <p>Nulla fermentum blandit dolor eu dictum. Nulla faucibus libero eget mi tempus, quis laoreet ante congue. Nullam sed tortor vitae magna auctor vestibulum. Fusce gravida, mauris at vulputate aliquet, arcu nunc scelerisque mi, pellentesque mollis lectus mauris in urna.</p>
@@ -230,6 +229,19 @@
     <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
+        let doctorid = getAllUrlParams().id;
+        fetch(`/doctors/` + doctorid)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                $('#doctorName').text(data[0].name + " " + data[0].surname);
+                $('#doctorImg').attr("src","../assets/img/doctors/"+data[0].id+".jpg");
+                
+            }).catch(function(err) {
+                // Gets called if request fails, or even if .then fails
+                return badRequest();
+            });
     });
     </script>
     <!--[if lt IE 9]>
