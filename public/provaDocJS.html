@@ -312,6 +312,7 @@
         App.init();
         //fetch data and populate page
         console.log("fetching data..");
+        //apri con ?doctorid=4
         let doctorid = +getAllUrlParams().doctorid;
         fetch(`/doctors/` + doctorid)
             .then(function(response) {
@@ -325,6 +326,7 @@
                 // Gets called if request fails, or even if .then fails
                 return badRequest();
             });
+            
         fetch(`/doctorsbyservice/` + doctorid)
             .then(function(response) {
                 return response.json();
