@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-    <title>PMS</title>
+    <title>Dottori</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="../assets/plugins/animate.css">
     <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
     <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="../assets/css/pages/portfolio-v2.css">
     <!-- CSS Theme -->
     <link rel="stylesheet" href="../assets/css/theme-colors/blue.css" id="style_color">
     <link rel="stylesheet" href="../assets/css/theme-skins/dark.css">
@@ -102,7 +105,7 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs">
             <div class="container">
-                <h1 class="pull-left">I nostri dottori</h1>
+                <h1 class="pull-left">Dottori</h1>
                 <ul class="pull-right breadcrumb">
                     <li><a href="../index.html">Home</a></li>
                     <li class="active">Dottori</li>
@@ -110,163 +113,119 @@
             </div>
         </div>
         <!--=== End Breadcrumbs ===-->
-       <div class="cube-portfolio container content-sm margin-bottom-30">
-            <div id="filters-container" class="cbp-l-filters-text no-padding">
-                <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div> |
-                <div data-filter=".marketing" class="cbp-filter-item"> Marketing </div> |
-                <div data-filter=".designer" class="cbp-filter-item"> Designer </div> |
-                <div data-filter=".developer" class="cbp-filter-item"> Developer </div> |
-                <div data-filter=".support" class="cbp-filter-item"> Support </div>
-            </div><!--/end Filters Container-->
+        <!--=== Content Part ===-->
+        <div class="container content">
+            <!-- Portfolio Sorting Blocks -->
+            <div class="sorting-block">
+                <div class="content-xs">
+                    <p class="lead">Elenco dottori filtrabili per luogo:</p>
+                    <ul id="doctorsSort" class="sorting-nav sorting-nav-v1 text-center">
+                        <li class="filter" data-filter="all">Tutte</li>
+                        <li class="filter" data-filter="loc_1">loc 1</li>
+                        <li class="filter" data-filter="loc_2">loc 2</li>
+                    </ul>
+                </div>
 
-            <div id="grid-container" class="cbp-l-grid-gallery">
-                <div class="cbp-item marketing designer">
-                    <a href="assets/ajax/cube-portfolio/team1.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="World Clock Widget<br>by Paul Flavius Nechita">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img4-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Development</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Paul Flavius</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item designer support">
-                    <a href="assets/ajax/cube-portfolio/team2.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="Bolt UI<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img6-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Designer</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item marketing designer">
-                    <a href="assets/ajax/cube-portfolio/team3.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="WhereTO App<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img9-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Illustration</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item designer marketing">
-                    <a href="assets/ajax/cube-portfolio/team4.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="iDevices<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img7-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Illustration</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item designer developer">
-                    <a href="assets/ajax/cube-portfolio/team5.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="Seemple* Music for iPad<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img3-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Illustration</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item marketing designer developer">
-                    <a href="assets/ajax/cube-portfolio/team6.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="Remind~Me Widget<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img8-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Designer</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item designer marketing">
-                    <a href="assets/ajax/cube-portfolio/team7.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="Workout Buddy<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img1-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Designer</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item marketing developer">
-                    <a href="assets/ajax/cube-portfolio/team8.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="Digital Menu<br>by Cosmin Capitanu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img5-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Development</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Cosmin Capitanu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item designer support">
-                    <a href="assets/ajax/cube-portfolio/team9.html" class="cbp-caption cbp-singlePageInline"
-                        data-title="Holiday Selector<br>by Cosmin Capitanu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="assets/img/team/img2-md.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-desc">Development</div>
-                                    <div class="cbp-l-caption-title text-uppercase">Cosmin Capitanu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div><!--/end Grid Container-->
+                <ul id="doctorsList" class="row sorting-grid" style="">
+                    <!--<li class="col-md-3 col-sm-6 col-xs-12 mix category_1 category_3 mix_all" data-cat="1" style="">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/1.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_3 category_1 mix_all" data-cat="3" style="">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/2.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_2 category_1 mix_all" data-cat="2" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/3.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_3 category_4 mix_all" data-cat="3" style="">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/4.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_2 category_1 category_4 mix_all" data-cat="2" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/5.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_4 mix_all" data-cat="1" style="">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/6.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_2 category_3  category_4 mix_all" data-cat="2" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/7.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_1 category_2 category_3 mix_all" data-cat="1" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/8.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_4 category_2 mix_all" data-cat="1" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/9.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="col-md-3 col-sm-6 col-xs-12 mix category_3 category_2 mix_all" data-cat="3" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/10.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>Dott. Suchino Il Magnifico</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>-->
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+            <!-- End Portfolio Sorting Blocks -->
         </div>
-        <!--=== End Cube Portfolio ===-->
+        <!--/container-->
+        <!--=== End Content Part ===-->
+
         <!--=== Footer Version 1 ===-->
         <div class="footer-v1">
             <div class="copyright">
@@ -319,7 +278,7 @@
     <!-- JS Implementing Plugins -->
     <script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>
     <script type="text/javascript" src="../assets/plugins/smoothScroll.js"></script>
-    <script type="text/javascript" src="../assets/plugins/jquery.parallax.js"></script>
+    <script type="text/javascript" src="../assets/plugins/jquery.mixitup.min.js"></script>
     <!-- JS Customization -->
     <script type="text/javascript" src="../assets/js/custom.js"></script>
     <!-- JS Page Level -->
@@ -327,6 +286,70 @@
     <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
+        $("#doctorsSort").append(`
+                        <li class="filter" data-filter="loc_2">CIAOCAZZO</li>`);
+
+        function populate() {
+            Array.prototype.contains = function(elem) {
+                for (var i in this) {
+                    if (this[i] == elem) return true;
+                }
+                return false;
+            }
+            var locations = [];
+            fetch(`/doctors`)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    data.map(addLocationSort);
+                    return data;
+                })
+                .then(function(data) {
+                    data.map(addDoctor);
+                })
+                .catch(function(err) {
+                    // Gets called if request fails, or even if .then fails
+                    //return badRequest();
+                    console.log("error");
+                });
+
+            function addLocationSort(doc) {
+                if (!locations.contains(doc.locationId)) {
+                    locations.push(doc.locationId);
+                    fetch(`/locations/` + doc.locationId)
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        .then(function(loc) {
+                            $("#doctorsSort").append(`
+                        <li class="filter" data-filter="loc_${loc[0].id}">${loc[0].name}</li>`);
+                        }).catch(function(err) {
+                            // Gets called if request fails, or even if .then fails
+                            //return badRequest();
+                            console.log("....err2");
+                        });
+                }
+            }
+
+            function addDoctor(doc) {
+                $("#doctorsList").append(`
+                <li class="col-md-3 col-sm-6 col-xs-12 mix loc_${doc.locationId} mix_all" data-cat="1" style=" display: inline-block; opacity: 1;">
+                        <a href="profilo_dottore.html">
+                            <img class="img-responsive" src="../assets/img/doctors/${doc.id}.jpg" alt="">
+                            <span class="sorting-cover">
+                                <span>${doc.name} ${doc.surname}</span>
+                            <p>Eventuali info</p>
+                            </span>
+                        </a>
+                    </li>`);
+            }
+        }
+        var deferred = populate();
+        $.when(deferred).done(function() {
+            console.log("done! mixing up...");
+            $('.sorting-grid').mixitup();
+        });
     });
     </script>
     <!--[if lt IE 9]>

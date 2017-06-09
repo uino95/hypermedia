@@ -19,5 +19,9 @@
 	background-color: #555555;
 }
 
+.content {
+	min-height: 400px;
+}
+
 
 
