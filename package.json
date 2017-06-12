@@ -1,7 +1,7 @@
 {
   "name": "polimi-hyp-2017-project",
   "version": "1.0.0",
-  "description": "hypermedia website",
+  "description": "hypermedia website ",
   "main": "index.js",
   "scripts": {
     "test": "test",
