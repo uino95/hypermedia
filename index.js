@@ -23,6 +23,7 @@ let servicesLocationsList = require("./other/serviceslocationsdata.json");
 
 // use it until testing
 // process.env.TEST = ;
+// process.env.TEST = true;
 
 let sqlDb;
 function initSqlDB() {
@@ -31,9 +32,11 @@ function initSqlDB() {
        > TEST=true node ./index.js
 
   */
+
+
   // if I'm testing the application
   if (process.env.TEST) {
-    // console.log("test mode");
+    console.log("test mode");
     sqlDb = sqlDbFactory({
       debug: true,
       client: "sqlite3",
@@ -43,7 +46,7 @@ function initSqlDB() {
     });
   // actual version of the db 
   } else {
-    //console.log("non-test mode");
+    console.log("non-test mode");
     sqlDb = sqlDbFactory({
       debug: true,
       client: "pg",
@@ -64,7 +67,7 @@ function initDoctorsTable() {
           table.string("name");
           table.string("surname");
           table.integer("locationId");
-          table.string("basicInfo");
+          // table.string("basicInfo");
           table.integer("serviceId");
           table.boolean("isResponsible");
         })
@@ -72,7 +75,11 @@ function initDoctorsTable() {
           return Promise.all(
             _.map(doctorsList, p => {
               // insert the row
-              return sqlDb("doctors").insert(p);
+              delete p.basicInfo;
+              return sqlDb("doctors").insert(p).catch(function(err){
+          console.log(err);
+          // console.log(err);
+        }); 
             })
           );
         });
@@ -81,6 +88,40 @@ function initDoctorsTable() {
     }
   });
 }
+
+
+
+// function initDoctorsTable() {
+//   return sqlDb.schema.hasTable("doctors").then(exists => {
+//     if (!exists) {
+//       sqlDb.schema
+//         .createTable("doctors", table => {
+//           // create the table
+//           table.increments("id").primary();
+//           table.string("name");
+//           table.string("surname");
+//           table.integer("locationId");
+//           table.string("basicInfo");
+//           table.integer("serviceId");
+//           table.boolean("isResponsible");
+//         })
+//         .then(() => {
+//           return Promise.all(
+//             _.map(doctorsList, p => {
+//               // insert the row
+//               console.log("ok");
+//               return sqlDb("doctors").insert(p).catch(function(err){
+//           console.log(err);
+//           // console.log(err);
+//         }); 
+//             })
+//           );
+//         });
+//     } else {
+//       return true;
+//     }
+//   });
+// }
 
 function initLocationsTable() {
   return sqlDb.schema.hasTable("locations").then(exists => {
