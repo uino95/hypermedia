@@ -23,5 +23,9 @@
 	min-height: 400px;
 }
 
+#doctorBox dd,dt{
+	font-size: 15px;
+}
+
 
 

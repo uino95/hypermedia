@@ -23,7 +23,7 @@ let servicesLocationsList = require("./other/serviceslocationsdata.json");
 
 // use it until testing
 // process.env.TEST = ;
-// process.env.TEST = true;
+process.env.TEST = true;
 
 let sqlDb;
 function initSqlDB() {

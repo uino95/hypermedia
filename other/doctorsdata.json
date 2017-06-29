@@ -72,6 +72,38 @@
     "isResponsible": 1
   },
   {
+    "name": "Franco1",
+    "surname": "de Gigio",
+    "locationId": 2,
+    "basicInfo": "Il Dottor de Gigio ha conseguito nell’anno 2014 il diploma di osteopatia D.O. presso il centro di osteopatia C.E.R.D.O. Centre pour l’étude la recherche et la diffusion ostéopathie; scuola riconosciuta da R.O.I.(registro osteopati italiani). Da anni collabora con la dottoressa Paola Ollandini presso lo studio medico Ollandini dove si interfaccia con vari specialisti nel settore medico.Durante la sua formazione ha effettuato tirocini presso numerose strutture sanitarie quali la Provincia Religiosa di San Pietro dell’ordine Ospedaliero di San Giovanni di Dio Fatebenefratelli, Via Cassia 600, Roma e il prestigioso centro riabilitativo Fondazione Santa Lucia Via Ardeatina 306, Roma; dove è potuto entrare in contatto con realtà di ambito patologico di vario tipo.Attualmente per scelta di tipo lavorativo ha deciso di dedicarsi solo ed esclusivamente all’applicazione dell’osteopatia come unica risoluzione del motivo di consulto del paziente e sceglie di collaborare esclusivamente con lo studio medico Ollandini.",
+    "serviceId": 2,
+    "isResponsible": 1
+  },
+  {
+    "name": "Franco2",
+    "surname": "de Gigio",
+    "locationId": 2,
+    "basicInfo": "Il Dottor de Gigio ha conseguito nell’anno 2014 il diploma di osteopatia D.O. presso il centro di osteopatia C.E.R.D.O. Centre pour l’étude la recherche et la diffusion ostéopathie; scuola riconosciuta da R.O.I.(registro osteopati italiani). Da anni collabora con la dottoressa Paola Ollandini presso lo studio medico Ollandini dove si interfaccia con vari specialisti nel settore medico.Durante la sua formazione ha effettuato tirocini presso numerose strutture sanitarie quali la Provincia Religiosa di San Pietro dell’ordine Ospedaliero di San Giovanni di Dio Fatebenefratelli, Via Cassia 600, Roma e il prestigioso centro riabilitativo Fondazione Santa Lucia Via Ardeatina 306, Roma; dove è potuto entrare in contatto con realtà di ambito patologico di vario tipo.Attualmente per scelta di tipo lavorativo ha deciso di dedicarsi solo ed esclusivamente all’applicazione dell’osteopatia come unica risoluzione del motivo di consulto del paziente e sceglie di collaborare esclusivamente con lo studio medico Ollandini.",
+    "serviceId": 2,
+    "isResponsible": 1
+  },
+  {
+    "name": "Franco3",
+    "surname": "de Gigio",
+    "locationId": 2,
+    "basicInfo": "Il Dottor de Gigio ha conseguito nell’anno 2014 il diploma di osteopatia D.O. presso il centro di osteopatia C.E.R.D.O. Centre pour l’étude la recherche et la diffusion ostéopathie; scuola riconosciuta da R.O.I.(registro osteopati italiani). Da anni collabora con la dottoressa Paola Ollandini presso lo studio medico Ollandini dove si interfaccia con vari specialisti nel settore medico.Durante la sua formazione ha effettuato tirocini presso numerose strutture sanitarie quali la Provincia Religiosa di San Pietro dell’ordine Ospedaliero di San Giovanni di Dio Fatebenefratelli, Via Cassia 600, Roma e il prestigioso centro riabilitativo Fondazione Santa Lucia Via Ardeatina 306, Roma; dove è potuto entrare in contatto con realtà di ambito patologico di vario tipo.Attualmente per scelta di tipo lavorativo ha deciso di dedicarsi solo ed esclusivamente all’applicazione dell’osteopatia come unica risoluzione del motivo di consulto del paziente e sceglie di collaborare esclusivamente con lo studio medico Ollandini.",
+    "serviceId": 2,
+    "isResponsible": 1
+  },
+  {
+    "name": "Franco4",
+    "surname": "de Gigio",
+    "locationId": 2,
+    "basicInfo": "Il Dottor de Gigio ha conseguito nell’anno 2014 il diploma di osteopatia D.O. presso il centro di osteopatia C.E.R.D.O. Centre pour l’étude la recherche et la diffusion ostéopathie; scuola riconosciuta da R.O.I.(registro osteopati italiani). Da anni collabora con la dottoressa Paola Ollandini presso lo studio medico Ollandini dove si interfaccia con vari specialisti nel settore medico.Durante la sua formazione ha effettuato tirocini presso numerose strutture sanitarie quali la Provincia Religiosa di San Pietro dell’ordine Ospedaliero di San Giovanni di Dio Fatebenefratelli, Via Cassia 600, Roma e il prestigioso centro riabilitativo Fondazione Santa Lucia Via Ardeatina 306, Roma; dove è potuto entrare in contatto con realtà di ambito patologico di vario tipo.Attualmente per scelta di tipo lavorativo ha deciso di dedicarsi solo ed esclusivamente all’applicazione dell’osteopatia come unica risoluzione del motivo di consulto del paziente e sceglie di collaborare esclusivamente con lo studio medico Ollandini.",
+    "serviceId": 2,
+    "isResponsible": 1
+  },
+  {
     "name": "Gregorio",
     "surname": "Casa",
     "locationId": 2,

@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-    <title>Dottori</title>
+    <title>Servizio</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
-    <!-- Web Fonts 
+    <!-- Web Fonts -->
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -26,9 +26,6 @@
     <link rel="stylesheet" href="../assets/plugins/animate.css">
     <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
     <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-    <!-- CSS Page Style -->
-    <link rel="stylesheet" href="../assets/css/pages/portfolio-v2.css">
     <!-- CSS Theme -->
     <link rel="stylesheet" href="../assets/css/theme-colors/blue.css" id="style_color">
     <link rel="stylesheet" href="../assets/css/theme-skins/dark.css">
@@ -105,32 +102,88 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs">
             <div class="container">
-                <h1 class="pull-left">Dottori</h1>
+                <h1 class="pull-left">Servizio</h1>
                 <ul class="pull-right breadcrumb">
                     <li><a href="../index.html">Home</a></li>
-                    <li class="active">Dottori</li>
+                    <li><a href="#">Tutti i Servizi</a></li>
+                    <li class="active">Servizio</li>
                 </ul>
             </div>
         </div>
         <!--=== End Breadcrumbs ===-->
         <!--=== Content Part ===-->
         <div class="container content">
-            <!-- Portfolio Sorting Blocks -->
-            <div class="sorting-block">
-                <div class="content-xs">
-                    <p class="lead">Elenco dottori filtrabili per luogo:</p>
-                    <ul id="doctorsSort" class="sorting-nav sorting-nav-v1 text-center">
-                        <li class="filter" data-filter="all">A-Z</li>
-                    </ul>
+            <div class="row team">
+                <div class="col-sm-6">
+                    <div class="headline">
+                        <h1 id="serviceName">Name</h1>
+                    </div>
+                    <p id="descrizione"> desc ...</p>
                 </div>
-
-                <ul id="doctorsList" class="row sorting-grid" style="">
-
-                </ul>
-
-                <div class="clearfix"></div>
+                <div class="col-sm-6">
+                    <div class="headline">
+                        <h2>Info Trattamento</h2>
+                    </div>
+                    <p id="infoTrattamento"> info ...</p>
+                </div>
             </div>
-            <!-- End Portfolio Sorting Blocks -->
+
+            <div class="headline">
+                <h2>Responsabili</h2>
+            </div>
+            <div id="docs">
+                <div class="row team">
+                    <div class="col-sm-3">
+                        <div class="thumbnail-style">
+                            <img class="img-responsive" src="assets/img/team/img20-md.jpg" alt="">
+                            <h3><a>Jack Bour</a> <small>Chief Executive Officer</small></h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="thumbnail-style">
+                            <img class="img-responsive" src="assets/img/team/img39-md.jpg" alt="">
+                            <h3><a>Kate Metus</a> <small>Project Manager</small></h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                            <ul class="list-unstyled list-inline team-socail">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="thumbnail-style">
+                            <img class="img-responsive" src="assets/img/team/img35-md.jpg" alt="">
+                            <h3><a>Porta Gravida</a> <small>VP of Operations</small></h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                            <ul class="list-unstyled list-inline team-socail">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="thumbnail-style">
+                            <img class="img-responsive" src="assets/img/team/img19-md.jpg" alt="">
+                            <h3><a>Donec Elit</a> <small>Director, R &amp; D Talent</small></h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                            <ul class="list-unstyled list-inline team-socail">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="headline">
+                <h3>Sedi in cui il Servizio è disponibile</h3></div>
+            <p id="provaSedi"> sedi ...</p>
+            <div id="map" class="map" style="position: relative; overflow: hidden;">
+            </div>
         </div>
         <!--/container-->
         <!--=== End Content Part ===-->
@@ -187,62 +240,111 @@
     <!-- JS Implementing Plugins -->
     <script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>
     <script type="text/javascript" src="../assets/plugins/smoothScroll.js"></script>
-    <script type="text/javascript" src="../assets/plugins/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/jquery.parallax.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7lKBxvCV4eWhUKmWZcTWlqEkLvmHUSXA&callback=initMap" async defer></script>
     <!-- JS Customization -->
     <script type="text/javascript" src="../assets/js/custom.js"></script>
     <!-- JS Page Level -->
     <script type="text/javascript" src="../assets/js/app.js"></script>
     <script type="text/javascript">
-    jQuery(document).ready(function() {
-        App.init();
-        
-        var locations = [];
-        fetch(`/doctors`)
+    var map;
+    var serviceId = getAllUrlParams().id;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: -28.643387,
+                lng: 153.612224
+            },
+            zoom: 5
+        });
+        var geocoder = new google.maps.Geocoder();
+        fetch(`/locationsbyservice/` + serviceId)
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
-                data.map(addLocationSort);
-                return data;
-            })
-            .then(function(data) {
-                data.map(addDoctor);
-                $('.sorting-grid').mixitup();
-            })
-            .then(function(data) {
-                $(".filter").each(function(index) {
-                    if (index > 0) { //skip first "all" filter
-                        let id = $(this).attr("data-filter").slice(-1);
-                        fetch(`/locations/` + id)
-                            .then(function(response) {
-                                return response.json();
-                            })
-                            .then(function(data) {
-                                $('*[data-filter="loc_' + data[0].id + '"]').text(data[0].name);
-                            });
+                data.map(addMarker);
+                let country = "Italy";
+                geocoder.geocode({
+                    'address': country
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
                     }
                 });
+            }).catch(function(err) {
+                // Gets called if request fails, or even if .then fails
+                return badRequest();
             });
 
-        function addLocationSort(doc) {
-            if (!locations.contains(doc.locationId)) {
-                locations[doc.locationId] = doc.locationId;
-                $("#doctorsSort").append('<li class="filter" data-filter="loc_' + doc.id + '">' + doc.id + '</li>');
+        function addMarker(location) {
+            geocoder.geocode({
+                'address': location.name + ' italy'
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    }
+    fetch(`/services/` + serviceId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            $('#serviceName').text(data[0].name);
+            $('#descrizione').text(data[0].description);
+            $('#infoTrattamento').text(data[0].treatment);
+        }).catch(function(err) {
+            // Gets called if request fails, or even if .then fails
+            return badRequest();
+        });
+    fetch(`/doctorsbyservice/` + serviceId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            var resps = [];
+            data.forEach(function(item) {
+                if (item.isResponsible == 1) {
+                    resps.push(item);
+                }
+            });
+            let i = 0;
+            var list = "";
+            for (var j = 0; j < resps.length / 4; j++) {
+                i = 0;
+                list = "";
+                while (j * 4 + i < resps.length && i < 4) {
+                    console.log(resps[j * 4 + i].name);
+                    list = list + `<a href="profilo_dottore.html?id=` + resps[j * 4 + i].id + `
+                    "><div class="col-sm-3">
+                        <div class="thumbnail-style">
+                            <img class="img-responsive" src="assets/img/team/img20-md.jpg" alt="">
+                            <h3>` + resps[j * 4 + i].surname + ' ' + resps[j * 4 + i].name + `</a>
+                        </div>
+                    </div></a>`;
+                    i++;
+                }
+                $('#docs').append(`
+                        <div class="row team"> ` + list + ` </div>
+                        `);
             }
-        }
-
-        function addDoctor(doc) {
-            $("#doctorsList").append(`
-                <li class="col-md-3 col-sm-6 col-xs-12 mix loc_${doc.locationId} mix_all" data-cat="1" style=" display: inline-block; opacity: 1;">
-                        <a href="profilo_dottore.html?id=${doc.id}">
-                            <img class="img-responsive" src="../assets/img/doctors/${doc.id}.jpg" alt="">
-                            <span class="sorting-cover">
-                                <span>${doc.name} ${doc.surname}</span>
-                            <p>Eventuali info</p>
-                            </span>
-                        </a>
-                    </li>`);
-        }
+        }).catch(function(err) {
+            console.log(err);
+            // Gets called if request fails, or even if .then fails
+            // return badRequest();
+        });
+    jQuery(document).ready(function() {
+        App.init();
+        initMap();
     });
     </script>
     <!--[if lt IE 9]>
