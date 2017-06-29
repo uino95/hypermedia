@@ -67,7 +67,7 @@ function initDoctorsTable() {
           table.string("name");
           table.string("surname");
           table.integer("locationId");
-          // table.string("basicInfo");
+          table.text("basicInfo");
           table.integer("serviceId");
           table.boolean("isResponsible");
         })
@@ -75,7 +75,7 @@ function initDoctorsTable() {
           return Promise.all(
             _.map(doctorsList, p => {
               // insert the row
-              delete p.basicInfo;
+              // delete p.basicInfo;
               return sqlDb("doctors").insert(p).catch(function(err){
           console.log(err);
           // console.log(err);
@@ -91,38 +91,6 @@ function initDoctorsTable() {
 
 
 
-// function initDoctorsTable() {
-//   return sqlDb.schema.hasTable("doctors").then(exists => {
-//     if (!exists) {
-//       sqlDb.schema
-//         .createTable("doctors", table => {
-//           // create the table
-//           table.increments("id").primary();
-//           table.string("name");
-//           table.string("surname");
-//           table.integer("locationId");
-//           table.string("basicInfo");
-//           table.integer("serviceId");
-//           table.boolean("isResponsible");
-//         })
-//         .then(() => {
-//           return Promise.all(
-//             _.map(doctorsList, p => {
-//               // insert the row
-//               console.log("ok");
-//               return sqlDb("doctors").insert(p).catch(function(err){
-//           console.log(err);
-//           // console.log(err);
-//         }); 
-//             })
-//           );
-//         });
-//     } else {
-//       return true;
-//     }
-//   });
-// }
-
 function initLocationsTable() {
   return sqlDb.schema.hasTable("locations").then(exists => {
     if (!exists) {
@@ -131,7 +99,7 @@ function initLocationsTable() {
           // create the table
           table.increments("id").primary();
           table.string("name");
-          table.string("basicInfo");
+          table.text("basicInfo");
           table.string("contacts");
         })
         .then(() => {
@@ -156,8 +124,8 @@ function initServicesTable() {
           // create the table
           table.increments("id").primary();
           table.string("name");
-          table.string("description");
-          table.string("treatment");
+          table.text("description");
+          table.text("treatment");
         })
         .then(() => {
           return Promise.all(
@@ -236,7 +204,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // get an array containing info about all doctors
 app.get("/doctors", function(req, res) {
-  let myQuery = sqlDb("doctors")
+  // use orderByRaw because knex cannot handle case insensitive ordering
+  let myQuery = sqlDb("doctors").orderByRaw('surname COLLATE NOCASE asc, name COLLATE NOCASE asc')
     .then(result => {
     res.send(JSON.stringify(result));
   })
