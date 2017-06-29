@@ -77,6 +77,7 @@ function initDoctorsTable() {
               // insert the row
               // delete p.basicInfo;
               return sqlDb("doctors").insert(p).catch(function(err){
+          console.log("ERRORE MENTRE RIEMPIO DOCTORS");
           console.log(err);
           // console.log(err);
         }); 
