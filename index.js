@@ -204,7 +204,8 @@ function initDb() {
     initLocationsTable();
     initServicesTable();
     initServicesLocationsTable();
-
+    initWhoWeAreTable();
+    
     return true;
 }
 
