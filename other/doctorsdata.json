@@ -37,7 +37,7 @@
     "locationId": 3,
     "basicInfo": "La dottoressa Pittini si è laureata in Medicina e Chirurgia a Novara e si è specializzato in Medicina Fisica e Riabilitativa con Lode presso l’Università degli Studi di Genova. Ha dedicato gran parte del suo percorso di studi e lavorativo alla Medicina Riabilitativa del dolore muscolo scheletrico. Ha partecipato al Master di II livello in tecniche manuali, posturali e infiltrative per la Riabilitazione presso l’Università di Roma La sapienza. Esegue numerosi trattamenti infiltrativi ecoguidati a livello della spalla, gomito, anca, ginocchio,caviglia, nella patologia tendinea cronica e acuta come la tendinopatia del tendine rotuleo, tendine di Achille e molte altre patologie. Ha partecipato anche al Master di II livello per l’Ossigeno-Ozonoterapia presso l’Università degli Studi di Pavia. Esegue l’Ozonoterapia per le patologie del rachide, quelle tendinee e osteo-articolari secondo le più recenti linee guida. Dal 2009 collabora strettamente con la S.C. Medicina Fisica e Riabilitativa Università del Piemonte Orientale di Novara come membro dell’equipe di Fisiatria Interventistica Ambulatoriale in ambito di ricerca e cura del dolore muscolo scheletrico. Ha lavorato come Medico Sociale tesserato per la Società U.C. Sampdoria, settore giovanile, nella stagione sportiva 2011/2012 ed è stato Medico consulente per Insuperabili Onlus Scuola Calcio per ragazzi disabili. Dal 2015 è Direttore presso il Centro di Fisioterapia Dr. Stagno, Centro di riferimento per la Fisioterapia e la Riabilitazione Ambulatoriale sul territorio Biellese da oltre 30 anni.",
     "serviceId": 3,
-    "isResponsible": 1
+    "isResponsible": 0
   },
   {
     "name": "Pietro",
@@ -45,7 +45,7 @@
     "locationId": 2,
     "basicInfo": "Il Prof. Grotti si è laureato nel 1969 in Medicina e Chirurgia presso l'Università Alma Mater Studiorum di Bologna. Presso il medesimo ateneo ha poi conseguito nel 1974 la Specializzazione in Chirurgia Generale, nel 1976 la Specializzazione in Chirurgia Vascolare e nel 1978 quella in Chirurgia Toracica. Dal 1970 è Assistente di Clinica Chirurgica presso l'Università di Bologna e dal 1980 presso il medesimo ateneo è Professore di Chirurgia Generale con attività chirurgica presso il Policlinico S.Orsola di Bologna. Dal 1992 è Direttore della Chirurgia generale dell'Ospedale Bellaria di Bologna e dal 2003 della Chirurgia Generale ad indirizzo Gastroenterologico e Laparoscopico dell'Ospedale Maggiore di Bologna. Ha compiuto stages formativi presso i Dipartimenti di Chirurgia Gastroenterologica degli Ospedali di Parigi: Beaujon, S. Antoine, Brousse, Rossy; di Boston: Massachussetts General Hospital; di Rochester nel Minnesota: Mayo Clinic; di New York: Cancer Sloan Kettering Institute; di Montpellier, Chicago, Cambridge, Strasburgo. I campi di attività del Professore hanno riguardato e riguardano le Malattie Gastroenterologiche trattate preferibilmente in Laparoscopia. Durante la sua attività ha eseguito 23.000 interventi chirurgici, di cui circa 9.000 in Laparoscopia.",
     "serviceId": 3,
-    "isResponsible": 1
+    "isResponsible": 0
   },
   {
     "name": "Biagio",
@@ -101,7 +101,7 @@
     "locationId": 2,
     "basicInfo": "Il Dottor de Gigio ha conseguito nell’anno 2014 il diploma di osteopatia D.O. presso il centro di osteopatia C.E.R.D.O. Centre pour l’étude la recherche et la diffusion ostéopathie; scuola riconosciuta da R.O.I.(registro osteopati italiani). Da anni collabora con la dottoressa Paola Ollandini presso lo studio medico Ollandini dove si interfaccia con vari specialisti nel settore medico.Durante la sua formazione ha effettuato tirocini presso numerose strutture sanitarie quali la Provincia Religiosa di San Pietro dell’ordine Ospedaliero di San Giovanni di Dio Fatebenefratelli, Via Cassia 600, Roma e il prestigioso centro riabilitativo Fondazione Santa Lucia Via Ardeatina 306, Roma; dove è potuto entrare in contatto con realtà di ambito patologico di vario tipo.Attualmente per scelta di tipo lavorativo ha deciso di dedicarsi solo ed esclusivamente all’applicazione dell’osteopatia come unica risoluzione del motivo di consulto del paziente e sceglie di collaborare esclusivamente con lo studio medico Ollandini.",
     "serviceId": 2,
-    "isResponsible": 1
+    "isResponsible": 0
   },
   {
     "name": "Gregorio",
@@ -109,7 +109,7 @@
     "locationId": 2,
     "basicInfo": "Gregorio Casa possiede la laurea di dottore in medicina con due specializzazioni: infettivologia e nefrologia. Studiò all'Università Johns Hopkins, sotto Brightman e Gilmar. Studente brillante ed ormai laureato, era candidato a vincere il Doyle internship che gli avrebbe consentito l'internato alla Mayo Clinic, quando venne cacciato per avere copiato un test (tra l'altro errato) da un suo compagno spione, futuro Dr. Phillip Weber, che lui tuttora schernisce con l'appellativo von Lieberman. A seguito dell'espulsione, per conseguire il dottorato si trasferì all'Università del Michigan, dove conobbe Lisa Cuddy, la quale già conosceva la fama di leggenda di cui godeva nel campus. Weber vinse il Doyle. House dichiara di avere anche una laurea in fisica teorica e che insegnò all'università per un certo periodo.",
     "serviceId": 1,
-    "isResponsible": 1
+    "isResponsible": 0
   }
 ]
 
