@@ -20,6 +20,7 @@ let doctorsList = require("./other/doctorsdata.json");
 let locationsList = require("./other/locationsdata.json");
 let servicesList = require("./other/servicesdata.json");
 let servicesLocationsList = require("./other/serviceslocationsdata.json");
+let whoweareInfo = require("./other/whowearedata.json");
 
 // use it until testing
 // process.env.TEST = ;
@@ -117,6 +118,28 @@ function initLocationsTable() {
   });
 }
 
+function initWhoWeAreTable() {
+  return sqlDb.schema.hasTable("whoweare").then(exists => {
+    if (!exists) {
+      sqlDb.schema
+        .createTable("whoweare", table => {
+          // create the table
+          table.text("info");
+        })
+        .then(() => {
+          return Promise.all(
+            _.map(whoweareInfo, p => {
+              // insert the row
+              return sqlDb("whoweare").insert(p);
+            })
+          );
+        });
+    } else {
+      return true;
+    }
+  });
+}
+
 function initServicesTable() {
   return sqlDb.schema.hasTable("services").then(exists => {
     if (!exists) {
@@ -177,6 +200,7 @@ function initDb() {
 	initLocationsTable();
 	initServicesTable();
 	initServicesLocationsTable();
+  initWhoWeAreTable();
 
 	return true; 
 }
@@ -199,6 +223,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // locations
 // services
 // servicesLocations
+// whoweare
 
 
 // Register REST entry points
@@ -252,7 +277,7 @@ app.get("/locations/:id", function(req, res) {
 // retrieve doctors working in the service with the id passed as parameter
 app.get("/doctorsbyservice/:id", function(req,res) {
   let myQuery = sqlDb("doctors");
-	myQuery.select().where("serviceId", req.params.id)
+  myQuery.select().where("serviceId", req.params.id)
     .then(result => {
     res.send(JSON.stringify(result));
   })
@@ -276,6 +301,15 @@ app.get("/locationsbyservice/:id", function(req, res) {
     this.select("locationId").from("servicesLocations").where("serviceId", req.params.id);
   })
   .then(result => {
+    res.send(JSON.stringify(result));
+  })
+})
+
+// get an array (of a single element) containing a single "who we are" text field
+app.get("/whoweare", function(req, res) {
+  // retrieve the whole table, because it contains only 1 entry
+  let myQuery = sqlDb("whoweare")
+    .then(result => {
     res.send(JSON.stringify(result));
   })
 })
