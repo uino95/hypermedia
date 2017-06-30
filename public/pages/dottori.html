@@ -227,7 +227,7 @@
         function addLocationSort(doc) {
             if (!locations.contains(doc.locationId)) {
                 locations[doc.locationId] = doc.locationId;
-                $("#doctorsSort").append('<li class="filter" data-filter="loc_' + doc.id + '">' + doc.id + '</li>');
+                $("#doctorsSort").append('<li class="filter" data-filter="loc_' + doc.locationId + '">' + doc.locationId + '</li>');
             }
         }
 
@@ -237,7 +237,7 @@
                         <a href="profilo_dottore.html?id=${doc.id}">
                             <img class="img-responsive" src="../assets/img/doctors/${doc.id}.jpg" alt="">
                             <span class="sorting-cover">
-                                <span>${doc.name} ${doc.surname}</span>
+                                <span>${doc.surname} ${doc.name}</span>
                             <p>Eventuali info</p>
                             </span>
                         </a>

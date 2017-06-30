@@ -77,6 +77,7 @@ function initDoctorsTable() {
               // insert the row
               // delete p.basicInfo;
               return sqlDb("doctors").insert(p).catch(function(err){
+          console.log("ERRORE MENTRE RIEMPIO DOCTORS");
           console.log(err);
           // console.log(err);
         }); 
@@ -206,6 +207,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/doctors", function(req, res) {
   // use orderByRaw because knex cannot handle case insensitive ordering
   let myQuery = sqlDb("doctors").orderByRaw('surname COLLATE NOCASE asc, name COLLATE NOCASE asc')
+    .then(result => {
+    res.send(JSON.stringify(result));
+  })
+})
+
+// get an array containing info about all locations
+app.get("/locations", function(req, res) {
+  // use orderByRaw because knex cannot handle case insensitive ordering
+  let myQuery = sqlDb("locations")
     .then(result => {
     res.send(JSON.stringify(result));
   })
