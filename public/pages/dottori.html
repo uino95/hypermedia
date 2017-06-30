@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
-    <!-- Web Fonts -->
+    <!-- Web Fonts 
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -36,10 +36,10 @@
     <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
 
-<body class="header-fixed">
+<body>
     <div class="wrapper">
         <!--=== Header v3 ===-->
-        <div class="header-v3 header-sticky">
+        <div class="header-v3">
             <!-- Navbar -->
             <div class="navbar navbar-default mega-menu" role="navigation">
                 <div class="container">
@@ -58,7 +58,7 @@
                         <div class="container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="chi_siamo.html">
                                         Chi siamo
                                     </a>
                                 </li>
@@ -84,7 +84,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="dottori.html">
                                         Dottori
                                     </a>
                                 </li>
@@ -120,7 +120,7 @@
                 <div class="content-xs">
                     <p class="lead">Elenco dottori filtrabili per luogo:</p>
                     <ul id="doctorsSort" class="sorting-nav sorting-nav-v1 text-center">
-                        <li class="filter" data-filter="all">Tutte</li>
+                        <li class="filter" data-filter="all">A-Z</li>
                     </ul>
                 </div>
 
@@ -142,7 +142,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                                2015 &copy; All Rights Reserved.
+                                2017 &copy; All Rights Reserved.
                                 <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                             </p>
                         </div>
@@ -219,7 +219,6 @@
                             })
                             .then(function(data) {
                                 $('*[data-filter="loc_' + data[0].id + '"]').text(data[0].name);
-                                console.log(data[0].name);
                             });
                     }
                 });
@@ -228,7 +227,7 @@
         function addLocationSort(doc) {
             if (!locations.contains(doc.locationId)) {
                 locations[doc.locationId] = doc.locationId;
-                $("#doctorsSort").append('<li class="filter" data-filter="loc_' + doc.id + '">' + doc.id + '</li>');
+                $("#doctorsSort").append('<li class="filter" data-filter="loc_' + doc.locationId + '">' + doc.locationId + '</li>');
             }
         }
 
@@ -238,7 +237,7 @@
                         <a href="profilo_dottore.html?id=${doc.id}">
                             <img class="img-responsive" src="../assets/img/doctors/${doc.id}.jpg" alt="">
                             <span class="sorting-cover">
-                                <span>${doc.name} ${doc.surname}</span>
+                                <span>${doc.surname} ${doc.name}</span>
                             <p>Eventuali info</p>
                             </span>
                         </a>
