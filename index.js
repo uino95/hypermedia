@@ -73,6 +73,7 @@ function initDoctorsTable() {
                     table.text("basicInfo");
                     table.integer("serviceId");
                     table.boolean("isResponsible");
+                    table.boolean("isResponsibleArea");
                 })
                 .then(() => {
                     return Promise.all(
