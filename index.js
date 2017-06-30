@@ -234,7 +234,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // get an array containing info about all doctors
 app.get("/doctors", function(req, res) {
     // use orderByRaw because knex cannot handle case insensitive ordering
-    let myQuery = sqlDb("doctors").orderByRaw('surname COLLATE NOCASE asc, name COLLATE NOCASE asc')
+    let myQuery = sqlDb("doctors").orderByRaw('surname, name')
         .then(result => {
             res.send(JSON.stringify(result));
         })
