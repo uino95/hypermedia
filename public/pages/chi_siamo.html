@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="title-v2">CHI SIAMO</h2>
-                    <p>Il PMS, attivo a Siracusa da oltre 40 anni, è una struttura sanitaria ambulatoriale a servizio completo orientata alla prevenzione, diagnosi e cura in regime di day hospital. È presente sul territorio lombardo, romagnolo e siciliano attraverso un network di strutture, collocate in Piubega, Mirandola e Siracusa. Nel 2006 ha ricevuto il prestigioso accreditamento da parte di Joint Commission International. Con oltre 1000 dipendenti tra medici specialisti, tecnici sanitari, infermieri e impiegati, PSM serve ogni anno circa 430mila pazienti.</p>
+                    <p id="infoText"> ... </p>
                     <p>
                         
                     </p>
@@ -190,6 +190,19 @@
     <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
+
+        fetch(`/whoweare`)
+            .then(function(response) {
+                console.log("ciao");
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data[0].info);
+                document.getElementById('infoText').textContent = data[0].info;
+            }).catch(function(err) {
+                // Gets called if request fails, or even if .then fails
+                return badRequest();
+            });
     });
     </script>
     <!--[if lt IE 9]>

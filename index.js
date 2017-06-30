@@ -121,25 +121,25 @@ function initLocationsTable() {
 }
 
 function initWhoWeAreTable() {
-  return sqlDb.schema.hasTable("whoweare").then(exists => {
-    if (!exists) {
-      sqlDb.schema
-        .createTable("whoweare", table => {
-          // create the table
-          table.text("info");
-        })
-        .then(() => {
-          return Promise.all(
-            _.map(whoweareInfo, p => {
-              // insert the row
-              return sqlDb("whoweare").insert(p);
-            })
-          );
-        });
-    } else {
-      return true;
-    }
-  });
+    return sqlDb.schema.hasTable("whoweare").then(exists => {
+        if (!exists) {
+            sqlDb.schema
+                .createTable("whoweare", table => {
+                    // create the table
+                    table.text("info");
+                })
+                .then(() => {
+                    return Promise.all(
+                        _.map(whoweareInfo, p => {
+                            // insert the row
+                            return sqlDb("whoweare").insert(p);
+                        })
+                    );
+                });
+        } else {
+            return true;
+        }
+    });
 }
 
 function initServicesTable() {
@@ -337,18 +337,18 @@ app.post('/contactForm', function(req, res) {
         console.log('Message sent: ' + info.response);
     });
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end('thanks');
 });
 
 
 // get an array (of a single element) containing a single "who we are" text field
 app.get("/whoweare", function(req, res) {
-  // retrieve the whole table, because it contains only 1 entry
-  let myQuery = sqlDb("whoweare")
-    .then(result => {
-    res.send(JSON.stringify(result));
-  })
+    // retrieve the whole table, because it contains only 1 entry
+    let myQuery = sqlDb("whoweare")
+        .then(result => {
+            res.send(JSON.stringify(result));
+        })
 })
 
 /////////////////////////////////////////////
