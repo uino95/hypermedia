@@ -27,7 +27,7 @@
     "name": "Giovanni",
     "surname": "Beri",
     "locationId": 2,
-    "basicInfo": "Il Dott. Beri si è laureato in Medicina e Chirurgia nel 1994 presso l'Università degli Studi di Perugia e ha conseguito la Specializzazione in Neurochirurgia nel 1999 presso l'Università degli Studi di Bari e in Neurologia nel 2014 presso lo stesso Ateneo. Attualmente il Dott. Pizzoni esercita la sua attività in libera professione intamoenia presso l'Ospedale Belcolle di Viterbo ed effettua visite a domicilio in tutto il territorio laziale.",
+    "basicInfo": "Il Dott. Beri si è laureato in Medicina e Chirurgia nel 1994 presso l'Università degli Studi di Perugia e ha conseguito la Specializzazione in Neurochirurgia nel 1999 presso l'Università degli Studi di Bari e in Neurologia nel 2014 presso lo stesso Ateneo; attualmente il Dott. Pizzoni esercita la sua attività in libera professione intamoenia presso l'Ospedale Belcolle di Viterbo ed effettua visite a domicilio in tutto il territorio laziale.",
     "serviceId": 3,
     "isResponsible": 1
   },
