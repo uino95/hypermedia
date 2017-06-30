@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-    <title>Profilo Dottore</title>
+    <title>Servizio</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,10 +33,10 @@
     <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
 
-<body class="header-fixed">
+<body>
     <div class="wrapper">
         <!--=== Header v3 ===-->
-        <div class="header-v3 header-sticky">
+        <div class="header-v3">
             <!-- Navbar -->
             <div class="navbar navbar-default mega-menu" role="navigation">
                 <div class="container">
@@ -55,7 +55,7 @@
                         <div class="container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="chi_siamo.html">
                                         Chi siamo
                                     </a>
                                 </li>
@@ -81,7 +81,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="dottori.html">
                                         Dottori
                                     </a>
                                 </li>
@@ -102,65 +102,42 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs">
             <div class="container">
-                <h1 class="pull-left">Profilo Dottore</h1>
+                <h1 class="pull-left">Servizio</h1>
                 <ul class="pull-right breadcrumb">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="dottori.html">Dottori</a></li>
-                    <li class="active">Profilo Dottore</li>
+                    <li><a href="#">Tutti i Servizi</a></li>
+                    <li class="active">Servizio</li>
                 </ul>
             </div>
         </div>
         <!--=== End Breadcrumbs ===-->
         <!--=== Content Part ===-->
-        <div class="container content-sm">
-            <div class="row about-me">
-                <div class="col-sm-4 shadow-wrapper md-margin-bottom-40">
-                    <div class="box-shadow shadow-effect-2">
-                        <img id="doctorImg" class="img-responsive img-bordered full-width" src="#" alt="">
+        <div class="container content">
+            <div class="row team">
+                <div class="col-sm-4">
+                    <div class="headline">
+                        <h1 id="serviceName">Name</h1>
                     </div>
+                    <p id="descrizione"> desc ...</p>
                 </div>
-
-                <div class="col-sm-8" id="doctorBox">
-                    <div class="overflow-h">
-                        <div class="pull-left">
-                            <div class="headline">
-                                <h2> Profilo Dottore </h2>
-                            </div>
-                            <dl class="dl-horizontal">
-                                <dt>Nome e Cognome</dt>
-                                <dd id="doctorName"> </dd>
-                                <br/>
-
-                                <dt>Informazioni</dt>
-                                <dd id="doctorBio"> </dd>
-                                <br/>
-                            </dl>
-
-                            <div class="headline">
-                                <h2> Servizio di Specializzazione </h2>
-                            </div>
-                            <dl class="dl-horizontal">
-                                <dt>Nome Servizio</dt>
-                                <dd id="doctorService">
-                                    <a href="#"> </a>
-                                </dd>
-                                <br/>
-
-                                <dt>Luogo</dt>
-                                <dd id="doctorLocation"> </dd>
-                                <br/>
-
-                                <dt>Responsabile</dt>
-                                <dd id="isResponsible">
-
-                                </dd>
-                                <br/>
-                            </dl>
-                        </div>
-
+                <div class="col-sm-8">
+                    <div class="headline">
+                        <h2>Info Trattamento</h2>
                     </div>
-                    <br>
+                    <p id="infoTrattamento"> info ...</p>
                 </div>
+            </div>
+
+            <div class="headline">
+                <h2>Responsabili</h2>
+            </div>
+            <div id="docs">
+
+            </div>
+
+            <div class="headline">
+                <h3>Sedi in cui il Servizio è disponibile</h3></div>
+            <div id="map" class="map" style="position: relative; overflow: hidden;">
             </div>
         </div>
         <!--/container-->
@@ -219,44 +196,121 @@
     <script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>
     <script type="text/javascript" src="../assets/plugins/smoothScroll.js"></script>
     <script type="text/javascript" src="../assets/plugins/jquery.parallax.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7lKBxvCV4eWhUKmWZcTWlqEkLvmHUSXA&callback=initMap" async defer></script>
     <!-- JS Customization -->
     <script type="text/javascript" src="../assets/js/custom.js"></script>
     <!-- JS Page Level -->
     <script type="text/javascript" src="../assets/js/app.js"></script>
     <script type="text/javascript">
-    jQuery(document).ready(function() {
-        App.init();
-        let doctorid = getAllUrlParams().id;
-        fetch(`/doctors/` + doctorid)
+    var map;
+    var serviceId = getAllUrlParams().id;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: -28.643387,
+                lng: 153.612224
+            },
+            zoom: 5
+        });
+        var geocoder = new google.maps.Geocoder();
+        fetch(`/locationsbyservice/` + serviceId)
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
-                fetch(`/locations/` + data[0].locationId)
-                    .then(function(response) {
-                        return response.json();
-                    }).then(function(location) {
-                        $('#doctorLocation').text(location[0].name);
-                        $('#doctorService a').attr("href", "servizio.html?id=" + data[0].serviceId);
-                    });
-                fetch(`/services/` + data[0].serviceId)
-                    .then(function(response) {
-                        return response.json();
-                    }).then(function(service) {
-                        $('#doctorService a').text(service[0].name);
-                    });
-                $('#doctorImg').attr("src", "../assets/img/doctors/" + data[0].id + ".jpg");
-                $('#doctorName').text(data[0].name + " " + data[0].surname);
-                $('#doctorBio').text(data[0].basicInfo);
-                if (data[0].isResponsible == 1) {
-                    $('#isResponsible').text('Si');
-                } else {
-                    $('#isResponsible').text('No');
-                }
+                data.map(addMarker);
+                let country = "Italy";
+                geocoder.geocode({
+                    'address': country
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                    }
+                });
             }).catch(function(err) {
                 // Gets called if request fails, or even if .then fails
                 return badRequest();
             });
+
+        function addMarker(location) {
+            geocoder.geocode({
+                'address': location.name + ' italy'
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    }
+    var locations = [];
+    var resps = [];
+    fetch(`/locations`)
+        .then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            data.map(function(loc) {
+                locations[loc.id] = loc.name;
+            });
+        });
+    fetch(`/services/` + serviceId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            $('#serviceName').text(data[0].name);
+            $('#descrizione').text(data[0].description);
+            $('#infoTrattamento').text(data[0].treatment);
+        }).catch(function(err) {
+            // Gets called if request fails, or even if .then fails
+            return badRequest();
+        });
+    fetch(`/doctorsbyservice/` + serviceId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            data.forEach(function(item) {
+                if (item.isResponsible == 1) {
+                    resps.push(item);
+                }
+            });
+        })
+        .then(function(data) {
+            let i = 0;
+            var list = "";
+            for (var j = 0; j < resps.length / 4; j++) {
+                i = 0;
+                list = "";
+                while (j * 4 + i < resps.length && i < 4) {
+                    console.log(resps[j * 4 + i].name);
+                    list = list + `<a href="profilo_dottore.html?id=` + resps[j * 4 + i].id + `
+                    "><div class="col-sm-3">
+                        <div class="thumbnail-style">
+                            <h3>` + resps[j * 4 + i].surname + ' ' + resps[j * 4 + i].name + `</h3>
+                            <h5>` + locations[resps[j * 4 + i].locationId] + `</h5>
+                        </div>
+                    </div></a>`;
+                    i++;
+                }
+                $('#docs').append(`
+                        <div class="row team"> ` + list + ` </div>
+                        `);
+            }
+        }).catch(function(err) {
+            console.log(err);
+            // Gets called if request fails, or even if .then fails
+            // return badRequest();
+        });
+    jQuery(document).ready(function() {
+        App.init();
+        initMap();
     });
     </script>
     <!--[if lt IE 9]>
