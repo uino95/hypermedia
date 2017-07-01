@@ -158,7 +158,7 @@
 .header-v6 .navbar-toggle,
 .header-v6 .navbar-toggle:hover, 
 .header-v6 .navbar-toggle:focus {
-	background: inherit;
+	background: white;
 }
 
 /*Navbar Collapse*/
@@ -408,7 +408,7 @@
 
     /*Navbar Nav*/
     .header-v6 .navbar-nav > li > a {
-    	color: #444;
+    	color: #eee;
     }
 
     /*Pull Right*/
@@ -930,7 +930,7 @@
 	}
 
 	.header-fixed .header-v6.header-fixed-shrink .navbar {
-		background: #fff;
+		
 	}
 
 	/*Navbar*/
@@ -977,6 +977,7 @@
 	/*Navbar Nav*/
 	.header-fixed .header-v6.header-fixed-shrink .navbar-nav > li > a {
 		line-height: 30px;
+		color: white;
 	}
 
 	/*Menu Icons*/	
@@ -1461,11 +1462,12 @@
 	.header-fixed .header-v6.header-classic-dark.header-fixed-shrink {
 		box-shadow: none;
 		background: #2a2b2b;
+		border-bottom: solid 2px #eee;
 	}
 
 	.header-v6.header-classic-dark .navbar,
 	.header-fixed .header-v6.header-classic-dark.header-fixed-shrink .navbar {
-		background-color: inherit;
+		
 	}
 
 	/*Navbar Brand*/

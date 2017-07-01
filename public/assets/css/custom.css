@@ -2,11 +2,19 @@
     background-color: #555555;
 }
 
+.header-v6 .navbar {
+    background-color: #555555;
+}
+
 .navbar {
     border-radius: 0px;
 }
 
 .header-v3 .navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.header-v6.header-sticky.header-fixed-shrink > div > a {
     color: white;
 }
 

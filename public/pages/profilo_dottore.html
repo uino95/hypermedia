@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- CSS Header and Footer -->
-    <link rel="stylesheet" href="../assets/css/headers/header-v3.css">
+    <link rel="stylesheet" href="../assets/css/headers/header-v6.css">
     <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="../assets/plugins/animate.css">
@@ -35,27 +35,35 @@
 
 <body class="header-fixed">
     <div class="wrapper">
-        <!--=== Header v3 ===-->
-        <div class="header-v3 header-sticky">
+        <!--=== Header v6 ===-->
+        <div class="header-v6 header-classic-dark header-sticky">
             <!-- Navbar -->
-            <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="navbar mega-menu" role="navigation">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
+                    <div class="menu-container">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             <span class="sr-only">Toggle navigation</span>
-                            <span class="fa fa-bars"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="../index.html">
-                            <img id="logo-header" src="../assets/img/logo-ok.png" alt="Logo">
-                        </a>
+
+                        <!-- Navbar Brand -->
+                        <div class="navbar-brand">
+                            <a href="../index.html">
+                                <img class="default-logo" src="../assets/img/logo-ok.png" alt="Logo">
+                            </a>
+                        </div>
+                        <!-- ENd Navbar Brand -->
                     </div>
+
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
-                        <div class="container">
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <div class="menu-container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="../pages/chi_siamo.html">
                                         Chi siamo
                                     </a>
                                 </li>
@@ -77,11 +85,11 @@
                                 <!-- End Pages -->
                                 <li>
                                     <a href="javascript:void(0);">
-                                        Le nostre sedi
+                                        Le nostre sedi 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="../pages/dottori.html">
                                         Dottori
                                     </a>
                                 </li>
@@ -124,7 +132,7 @@
                     <div class="overflow-h">
                         <div class="pull-left">
                             <div class="headline">
-                                <h2> Profilo Dottore </h2>
+                                <h2> Informazioni di Base </h2>
                             </div>
                             <dl class="dl-horizontal">
                                 <dt>Nome e Cognome</dt>
@@ -139,7 +147,7 @@
                             <div class="headline">
                                 <h2> Servizio di Specializzazione </h2>
                             </div>
-                            <dl class="dl-horizontal">
+                            <dl class="dl-horizontal" id="responsibleDiv">
                                 <dt>Nome Servizio</dt>
                                 <dd id="doctorService">
                                     <a href="#"> </a>
@@ -149,12 +157,6 @@
                                 <dt>Sede</dt>
                                 <dd id="doctorLocation">
                                     <a href="#"> </a>
-                                </dd>
-                                <br/>
-
-                                <dt>Responsabile</dt>
-                                <dd id="isResponsible">
-
                                 </dd>
                                 <br/>
                             </dl>
@@ -252,9 +254,14 @@
                 $('#doctorName').text(data[0].name + " " + data[0].surname);
                 $('#doctorBio').text(data[0].basicInfo);
                 if (data[0].isResponsible == 1) {
-                    $('#isResponsible').text('Si');
-                } else {
-                    $('#isResponsible').text('No');
+                    $('#responsibleDiv').append(`
+                                <dt>Responsabile Servizio</dt>
+                                <dd> Si </dd><br/>`);
+                }
+                if (data[0].isResponsibleArea == 1) {
+                    $('#responsibleDiv').append(`
+                                <dt>Responsabile Area</dt>
+                                <dd> Si </dd><br/>`);
                 }
             }).catch(function(err) {
                 // Gets called if request fails, or even if .then fails

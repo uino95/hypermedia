@@ -114,22 +114,24 @@
         <div class="container content">
             <div class="row">
                 <div class="col-md-6">
-                    <h2 class="title-v2">CHI SIAMO</h2>
+                    <img class="img-responsive" src="../assets/img/chi_siamo_foto.jpg" alt="" style="margin-top: 30px;">
+                </div>
+                <div class="col-md-6">
+                    <div class="headline">
+                        <h2 id="locationName">Chi Siamo</h2>
+                    </div>
                     <p id="infoText"> ... </p>
                     <p>
-                        
+
                     </p>
                     <br>
                     <!-- <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Leggi di più</a> -->
-                </div>
-                <div class="col-md-6">
-                    <img class="img-responsive" src="../assets/img/chi_siamo_foto.jpg" alt="" style="margin-top: 10px;">
                 </div>
             </div>
         </div>
         <!--/container-->
         <!--=== End Content Part ===-->
-        
+
         <!--=== Footer Version 1 ===-->
         <div class="footer-v1">
             <div class="copyright">
@@ -190,7 +192,6 @@
     <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
-
         fetch(`/whoweare`)
             .then(function(response) {
                 console.log("ciao");
