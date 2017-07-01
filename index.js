@@ -26,7 +26,7 @@ let whoweareInfo = require("./other/whowearedata.json");
 // use it until testing
 // process.env.TEST = ;
 
-//process.env.TEST = true;
+process.env.TEST = true;
 
 let sqlDb;
 
@@ -326,7 +326,7 @@ app.post('/contactForm', function(req, res) {
 
     // setup e-mail data with unicode symbols
     var mailOptions = {
-        from: '"' + req.body.subject + '" <clinic.pms@gmail.com>', // sender address
+        from: '"' + req.body.name + '" <clinic.pms@gmail.com>', // sender address
         to: req.body.mail, // list of receivers
         subject: 'Hello ✔' + req.body.subject, // Subject line
         html: '<p>Message: ' + req.body.message + '</p>' // html body

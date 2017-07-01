@@ -306,7 +306,7 @@
         }).catch(function(err) {
             console.log(err);
             // Gets called if request fails, or even if .then fails
-            // return badRequest();
+            return badRequest();
         });
     jQuery(document).ready(function() {
         App.init();

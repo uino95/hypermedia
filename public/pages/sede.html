@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-    <title>Profilo Dottore</title>
+    <title>Sede</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,10 +33,10 @@
     <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
 
-<body class="header-fixed">
+<body>
     <div class="wrapper">
         <!--=== Header v3 ===-->
-        <div class="header-v3 header-sticky">
+        <div class="header-v3">
             <!-- Navbar -->
             <div class="navbar navbar-default mega-menu" role="navigation">
                 <div class="container">
@@ -55,7 +55,7 @@
                         <div class="container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="chi_siamo.html">
                                         Chi siamo
                                     </a>
                                 </li>
@@ -81,7 +81,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="dottori.html">
                                         Dottori
                                     </a>
                                 </li>
@@ -102,68 +102,47 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs">
             <div class="container">
-                <h1 class="pull-left">Profilo Dottore</h1>
+                <h1 class="pull-left">Sede</h1>
                 <ul class="pull-right breadcrumb">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="dottori.html">Dottori</a></li>
-                    <li class="active">Profilo Dottore</li>
+                    <li><a href="#">Tutte le sedi</a></li>
+                    <li class="active">Sede</li>
                 </ul>
             </div>
         </div>
         <!--=== End Breadcrumbs ===-->
         <!--=== Content Part ===-->
-        <div class="container content-sm">
-            <div class="row about-me">
-                <div class="col-sm-4 shadow-wrapper md-margin-bottom-40">
-                    <div class="box-shadow shadow-effect-2">
-                        <img id="doctorImg" class="img-responsive img-bordered full-width" src="#" alt="">
+        <div class="container content">
+            <div class="row team">
+                <div class="col-md-12">
+                    <div class="headline">
+                        <h1 id="locationName">Name</h1>
                     </div>
-                </div>
-
-                <div class="col-sm-8" id="doctorBox">
-                    <div class="overflow-h">
-                        <div class="pull-left">
-                            <div class="headline">
-                                <h2> Profilo Dottore </h2>
-                            </div>
-                            <dl class="dl-horizontal">
-                                <dt>Nome e Cognome</dt>
-                                <dd id="doctorName"> </dd>
-                                <br/>
-
-                                <dt>Informazioni</dt>
-                                <dd id="doctorBio"> </dd>
-                                <br/>
-                            </dl>
-
-                            <div class="headline">
-                                <h2> Servizio di Specializzazione </h2>
-                            </div>
-                            <dl class="dl-horizontal">
-                                <dt>Nome Servizio</dt>
-                                <dd id="doctorService">
-                                    <a href="#"> </a>
-                                </dd>
-                                <br/>
-
-                                <dt>Sede</dt>
-                                <dd id="doctorLocation">
-                                    <a href="#"> </a>
-                                </dd>
-                                <br/>
-
-                                <dt>Responsabile</dt>
-                                <dd id="isResponsible">
-
-                                </dd>
-                                <br/>
-                            </dl>
-                        </div>
-
-                    </div>
-                    <br>
+                    <p id="basicInfo"> desc ...</p>
+                    <b>Contatto: </b><span id="contacts">ciaociao@pms.it</span>
+                    <br/>
+                    <br/>
                 </div>
             </div>
+
+            <div class="row team">
+                <div class="col-md-6">
+                    <div class="headline">
+                        <h3>Trovaci sulla mappa</h3>
+                    </div>
+                    <div id="map" class="map" style="position: relative; overflow: hidden;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="headline">
+                        <h3>Servizi disponibili</h3>
+                    </div>
+                    <ul id="availableServices">
+                       
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <!--/container-->
         <!--=== End Content Part ===-->
@@ -221,45 +200,84 @@
     <script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>
     <script type="text/javascript" src="../assets/plugins/smoothScroll.js"></script>
     <script type="text/javascript" src="../assets/plugins/jquery.parallax.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7lKBxvCV4eWhUKmWZcTWlqEkLvmHUSXA&callback=initMap" async defer></script>
     <!-- JS Customization -->
     <script type="text/javascript" src="../assets/js/custom.js"></script>
     <!-- JS Page Level -->
     <script type="text/javascript" src="../assets/js/app.js"></script>
     <script type="text/javascript">
+    var map;
+    var locationId = getAllUrlParams().id;
+    var locationName = "Siracusa";
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: -28.643387,
+                lng: 153.612224
+            },
+            zoom: 5
+        });
+        var geocoder = new google.maps.Geocoder();
+        addMarker();
+        let country = "Italy";
+        geocoder.geocode({
+            'address': country
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            }
+        });
+
+        function addMarker() {
+            geocoder.geocode({
+                'address': locationName + ' italy'
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    }
+    fetch(`/locations/` + locationId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            locationName = data[0].name;
+            $('#locationName').text(data[0].name);
+            $('#basicInfo').text(data[0].basicInfo);
+            $('#contacts').text(data[0].contacts);
+            initMap();
+        }).catch(function(err) {
+            console.log(err);
+            // Gets called if request fails, or even if .then fails
+            //return badRequest();
+        });
+    fetch(`/servicesbylocation/` + locationId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            data.forEach(function(item) {
+                $('#availableServices').append(`
+                        <li><h4><a href="servizio.html?id=` + item.id + `">` + item.name + `</a></h4></li>
+                        `);
+            });
+        })
+        .catch(function(err) {
+            console.log(err);
+            // Gets called if request fails, or even if .then fails
+            return badRequest();
+        });
     jQuery(document).ready(function() {
         App.init();
-        let doctorid = getAllUrlParams().id;
-        fetch(`/doctors/` + doctorid)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                fetch(`/locations/` + data[0].locationId)
-                    .then(function(response) {
-                        return response.json();
-                    }).then(function(location) {
-                        $('#doctorLocation a').text(location[0].name);
-                        $('#doctorLocation a').attr("href", "sede.html?id=" + data[0].locationId);
-                        $('#doctorService a').attr("href", "servizio.html?id=" + data[0].serviceId);
-                    });
-                fetch(`/services/` + data[0].serviceId)
-                    .then(function(response) {
-                        return response.json();
-                    }).then(function(service) {
-                        $('#doctorService a').text(service[0].name);
-                    });
-                $('#doctorImg').attr("src", "../assets/img/doctors/" + data[0].id + ".jpg");
-                $('#doctorName').text(data[0].name + " " + data[0].surname);
-                $('#doctorBio').text(data[0].basicInfo);
-                if (data[0].isResponsible == 1) {
-                    $('#isResponsible').text('Si');
-                } else {
-                    $('#isResponsible').text('No');
-                }
-            }).catch(function(err) {
-                // Gets called if request fails, or even if .then fails
-                return badRequest();
-            });
     });
     </script>
     <!--[if lt IE 9]>
