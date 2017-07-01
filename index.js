@@ -26,7 +26,7 @@ let whoweareInfo = require("./other/whowearedata.json");
 // use it until testing
 // process.env.TEST = ;
 
-process.env.TEST = true;
+//process.env.TEST = true;
 
 let sqlDb;
 
