@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- CSS Header and Footer -->
-    <link rel="stylesheet" href="../assets/css/headers/header-v3.css">
+    <link rel="stylesheet" href="../assets/css/headers/header-v6.css">
     <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="../assets/plugins/animate.css">
@@ -35,27 +35,35 @@
 
 <body class="header-fixed">
     <div class="wrapper">
-        <!--=== Header v3 ===-->
-        <div class="header-v3 header-sticky">
+        <!--=== Header v6 ===-->
+        <div class="header-v6 header-classic-dark header-sticky">
             <!-- Navbar -->
-            <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="navbar mega-menu" role="navigation">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
+                    <div class="menu-container">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             <span class="sr-only">Toggle navigation</span>
-                            <span class="fa fa-bars"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="../index.html">
-                            <img id="logo-header" src="../assets/img/logo-ok.png" alt="Logo">
-                        </a>
+
+                        <!-- Navbar Brand -->
+                        <div class="navbar-brand">
+                            <a href="../index.html">
+                                <img class="default-logo" src="../assets/img/logo-ok.png" alt="Logo">
+                            </a>
+                        </div>
+                        <!-- ENd Navbar Brand -->
                     </div>
+
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
-                        <div class="container">
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <div class="menu-container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="../pages/chi_siamo.html">
                                         Chi siamo
                                     </a>
                                 </li>
@@ -77,11 +85,11 @@
                                 <!-- End Pages -->
                                 <li>
                                     <a href="javascript:void(0);">
-                                        Le nostre sedi
+                                        Le nostre sedi 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="dottori.html">
+                                    <a href="../pages/dottori.html">
                                         Dottori
                                     </a>
                                 </li>
@@ -96,6 +104,8 @@
                     <!--/navbar-collapse-->
                 </div>
             </div>
+            <!-- End Navbar -->
+        </div>
             <!-- End Navbar -->
         </div>
         <!--=== End Header v3 ===-->
