@@ -213,11 +213,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+// Register REST entry points
+
 /////////////////////////////////////////////
 ////////////////// APP.GET //////////////////
 /////////////////////////////////////////////
 
-// Register REST entry points
 
 // Name of the tables are:
 // doctors
@@ -225,6 +226,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // services
 // servicesLocations
 // whoweare
+
 
 // retrieve "who we are" data
 // result returned as a JSON array with a single element
@@ -319,6 +321,10 @@ app.get("/locationsbyservice/:id", function(req, res) {
         })
 })
 
+
+/////////////////////////////////////////////
+///////////////// APP.POST //////////////////
+/////////////////////////////////////////////
 
 //form data handling
 app.post('/contactForm', function(req, res) {
