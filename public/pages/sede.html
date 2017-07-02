@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
 
-<body>
+<body class="header-fixed">
     <div class="wrapper">
         <!--=== Header v6 ===-->
         <div class="header-v6 header-classic-dark header-sticky">
@@ -146,7 +146,7 @@
                         <h3>Servizi disponibili</h3>
                     </div>
                     <ul id="availableServices">
-                       
+
                     </ul>
                 </div>
             </div>
@@ -216,7 +216,7 @@
     <script type="text/javascript">
     var map;
     var locationId = getAllUrlParams().id;
-    var locationName = "Siracusa";
+    var sede = [];
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -238,19 +238,38 @@
         });
 
         function addMarker() {
-            geocoder.geocode({
-                'address': locationName + ' italy'
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    map.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
+            try {
+                geocoder.geocode({
+                    'address': sede[0].name + ' italy'
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        let contentString = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h1 id="firstHeading" class="firstHeading">PMS ' + sede[0].name + '</h1>' +
+                            '<div id="bodyContent">' +
+                            '<p>' + sede[0].basicInfo + '</p> ' +
+                            '</div>' +
+                            '</div>';
+                        var infowindow = new google.maps.InfoWindow({
+                            content: contentString
+                        });
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: sede[0].name
+                        });
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            } catch (err) {
+                console.log(err);
+            }
         }
     }
     fetch(`/locations/` + locationId)
@@ -258,7 +277,7 @@
             return response.json();
         })
         .then(function(data) {
-            locationName = data[0].name;
+            sede = data;
             $('#locationName').text(data[0].name);
             $('#basicInfo').text(data[0].basicInfo);
             $('#contacts').text(data[0].contacts);
@@ -266,7 +285,7 @@
         }).catch(function(err) {
             console.log(err);
             // Gets called if request fails, or even if .then fails
-            //return badRequest();
+            return badRequest();
         });
     fetch(`/servicesbylocation/` + locationId)
         .then(function(response) {
