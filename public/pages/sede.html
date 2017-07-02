@@ -238,34 +238,38 @@
         });
 
         function addMarker() {
-            geocoder.geocode({
-                'address': sede[0].name + ' italy'
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    let contentString = '<div id="content">' +
-                        '<div id="siteNotice">' +
-                        '</div>' +
-                        '<h1 id="firstHeading" class="firstHeading">PMS ' + sede[0].name + '</h1>' +
-                        '<div id="bodyContent">' +
-                        '<p>' + sede[0].basicInfo + '</p> ' +
-                        '</div>' +
-                        '</div>';
-                    var infowindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
-                    map.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location,
-                        title: sede[0].name
-                    });
-                    marker.addListener('click', function() {
-                        infowindow.open(map, marker);
-                    });
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
+            try {
+                geocoder.geocode({
+                    'address': sede[0].name + ' italy'
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        let contentString = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h1 id="firstHeading" class="firstHeading">PMS ' + sede[0].name + '</h1>' +
+                            '<div id="bodyContent">' +
+                            '<p>' + sede[0].basicInfo + '</p> ' +
+                            '</div>' +
+                            '</div>';
+                        var infowindow = new google.maps.InfoWindow({
+                            content: contentString
+                        });
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: sede[0].name
+                        });
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            } catch (err) {
+                console.log(err);
+            }
         }
     }
     fetch(`/locations/` + locationId)
@@ -281,7 +285,7 @@
         }).catch(function(err) {
             console.log(err);
             // Gets called if request fails, or even if .then fails
-            //return badRequest();
+            return badRequest();
         });
     fetch(`/servicesbylocation/` + locationId)
         .then(function(response) {

@@ -23,17 +23,21 @@
 }
 
 .sky-form header {
-	color: white;
-	background-color: #555555;
+    color: white;
+    background-color: #555555;
 }
 
 .content {
-	min-height: 400px;
+    min-height: 400px;
 }
 
-#doctorBox dd,dt{
-	font-size: 15px;
+#doctorBox dd,
+dt {
+    font-size: 15px;
 }
 
-
-
+.chi-siamo-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

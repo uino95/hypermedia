@@ -312,7 +312,6 @@
                 i = 0;
                 list = "";
                 while (j * 4 + i < resps.length && i < 4) {
-                    console.log(resps[j * 4 + i].name);
                     list = list + `<a href="profilo_dottore.html?id=` + resps[j * 4 + i].id + `
                     "><div class="col-sm-3">
                         <div class="thumbnail-style">
@@ -333,7 +332,6 @@
         });
     jQuery(document).ready(function() {
         App.init();
-        initMap();
     });
     </script>
     <!--[if lt IE 9]>
