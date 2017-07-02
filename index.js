@@ -26,7 +26,7 @@ let whoweareInfo = require("./other/whowearedata.json");
 // use it until testing
 // process.env.TEST = ;
 
-//process.env.TEST = true;
+process.env.TEST = true;
 
 let sqlDb;
 
@@ -205,7 +205,7 @@ function initDb() {
     initServicesTable();
     initServicesLocationsTable();
     initWhoWeAreTable();
-    
+
     return true;
 }
 
@@ -310,7 +310,14 @@ app.get("/locationsbyservice/:id", function(req, res) {
 })
 
 
-//form data handling
+/*  Form data handling. Given the following data:
+ *      - name: writer's name
+ *      - mail: writer's mail
+ *      - subject: subject of the inquery
+ *      - message: writer's message
+ *      
+ *      an email will be sent to the writer's mail
+ */
 app.post('/contactForm', function(req, res) {
 
     var smtpConfig = {

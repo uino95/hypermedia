@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -217,6 +218,7 @@
         App.init();
         
         var locations = [];
+        var locationNames = [];
         fetch(`/doctors`)
             .then(function(response) {
                 return response.json();
@@ -257,8 +259,7 @@
                         <a href="profilo_dottore.html?id=${doc.id}">
                             <img class="img-responsive" src="../assets/img/doctors/${doc.id}.jpg" alt="">
                             <span class="sorting-cover">
-                                <span>${doc.surname} ${doc.name}</span>
-                            <p>Eventuali info</p>
+                                <span><b>${doc.surname} ${doc.name}</b></span>
                             </span>
                         </a>
                     </li>`);

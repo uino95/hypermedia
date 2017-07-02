@@ -277,7 +277,19 @@
     background: url(../img/patterns/breadcrumbs.png) repeat;
 }
 
-@media(min-width: 791px) {
+@media(min-width: 0px) {
+    .breadcrumbs {
+        margin-top: 0;
+    }
+}
+
+@media(min-width: 991px) {
+    .breadcrumbs {
+        margin-top: 180px;
+    }
+}
+
+@media(min-width: 1200px) {
     .breadcrumbs {
         margin-top: 90px;
     }

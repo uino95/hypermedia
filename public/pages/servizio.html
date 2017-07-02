@@ -148,11 +148,23 @@
                 </div>
             </div>
 
-            <div class="headline">
-                <h2>Responsabili</h2>
-            </div>
-            <div id="docs">
+            <div class="row team">
+                <div class="col-sm-4">
+                    <div class="headline">
+                        <h2>Responsabile</h2>
+                    </div>
+                    <div id="docs">
 
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="headline">
+                        <h2>Dottori Operanti nel Servizio</h2>
+                    </div>
+                    <div id="docsWorkingThere">
+
+                    </div>
+                </div>
             </div>
 
             <div class="headline">
@@ -292,55 +304,69 @@
             data.map(function(loc) {
                 locations[loc.id] = loc.name;
             });
-        });
-    fetch(`/services/` + serviceId)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            $('#serviceName').text(data[0].name);
-            $('#descrizione').text(data[0].description);
-            $('#infoTrattamento').text(data[0].treatment);
-        }).catch(function(err) {
-            // Gets called if request fails, or even if .then fails
-            return badRequest();
-        });
-    fetch(`/doctorsbyservice/` + serviceId)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            data.forEach(function(item) {
-                if (item.isResponsible == 1) {
-                    resps.push(item);
-                }
-            });
-        })
-        .then(function(data) {
-            let i = 0;
-            var list = "";
-            for (var j = 0; j < resps.length / 4; j++) {
-                i = 0;
-                list = "";
-                while (j * 4 + i < resps.length && i < 4) {
-                    list = list + `<a href="profilo_dottore.html?id=` + resps[j * 4 + i].id + `
+        }).then(function(data2) {
+            fetch(`/services/` + serviceId)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    $('#serviceName').text(data[0].name);
+                    $('#descrizione').text(data[0].description);
+                    $('#infoTrattamento').text(data[0].treatment);
+                }).catch(function(err) {
+                    // Gets called if request fails, or even if .then fails
+                    return badRequest();
+                });
+            fetch(`/doctorsbyservice/` + serviceId)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    data.map(function(item) {
+                        if (item.isResponsible == 1) {
+                            $('#docs').append(`<a href="profilo_dottore.html?id=` + item.id + `
+                    "><div class="col-sm-12">
+                        <div class="thumbnail-style">
+                            <h3>` + item.surname + ' ' + item.name + `</h3>
+                            <h5>` + locations[item.locationId] + `</h5>
+                        </div>
+                    </div></a>`);
+                        }
+                        $('#docsWorkingThere').append(`<a href="profilo_dottore.html?id=` + item.id + `
+                    "><div class="col-sm-4">
+                        <div class="thumbnail-style">
+                            <h3>` + item.surname + ' ' + item.name + `</h3>
+                            <h5>` + locations[item.locationId] + `</h5>
+                        </div>
+                    </div></a>`);
+                    });
+                })
+                .then(function(data) {
+                    /*let i = 0;
+                    var list = "";
+                    for (var j = 0; j < resps.length / 4; j++) {
+                        i = 0;
+                        list = "";
+                        while (j * 4 + i < resps.length && i < 4) {
+                            list = list + `<a href="profilo_dottore.html?id=` + resps[j * 4 + i].id + `
                     "><div class="col-sm-3">
                         <div class="thumbnail-style">
                             <h3>` + resps[j * 4 + i].surname + ' ' + resps[j * 4 + i].name + `</h3>
                             <h5>` + locations[resps[j * 4 + i].locationId] + `</h5>
                         </div>
                     </div></a>`;
-                    i++;
-                }
-                $('#docs').append(`
+                            i++;
+                        }
+                        $('#docs').append(`
                         <div class="row team"> ` + list + ` </div>
                         `);
-            }
-        }).catch(function(err) {
-            console.log(err);
-            // Gets called if request fails, or even if .then fails
-            return badRequest();
-        });
+                    }*/
+                }).catch(function(err) {
+                    console.log(err);
+                    // Gets called if request fails, or even if .then fails
+                    return badRequest();
+                });
+        })
     jQuery(document).ready(function() {
         App.init();
     });
