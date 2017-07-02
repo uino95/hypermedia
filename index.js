@@ -23,21 +23,15 @@ let servicesList = require("./other/servicesdata.json");
 let servicesLocationsList = require("./other/serviceslocationsdata.json");
 let whoweareInfo = require("./other/whowearedata.json");
 
-// use it until testing
-// process.env.TEST = ;
-
-//process.env.TEST = true;
 
 let sqlDb;
 
+/////////////////////////////////////////////////////
+
+
+// Locally we should launch the app with TEST=true to use SQLlite
+// on Heroku TEST is default at false, so PostGres is used
 function initSqlDB() {
-    /* Locally we should launch the app with TEST=true to use SQLlite:
-
-         > TEST=true node ./index.js
-
-    */
-
-
     // if I'm testing the application
     if (process.env.TEST) {
         console.log("test mode");
@@ -197,9 +191,9 @@ function initServicesLocationsTable() {
 }
 
 
+// for each table required, check if already existing
+// if not, create and populate
 function initDb() {
-    // for each table required, check if already existing
-    // if not, create and populate
     initDoctorsTable();
     initLocationsTable();
     initServicesTable();
@@ -218,9 +212,12 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 /////////////////////////////////////////////
 ////////////////// APP.GET //////////////////
 /////////////////////////////////////////////
+
+// Register REST entry points
 
 // Name of the tables are:
 // doctors
@@ -229,28 +226,35 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // servicesLocations
 // whoweare
 
+// retrieve "who we are" data
+app.get("/whoweare", function(req, res) {
+    // retrieve the whole table, because it contains only 1 entry
+    let myQuery = sqlDb("whoweare")
+        .then(result => {
+            res.send(JSON.stringify(result));
+        })
+})
 
-// Register REST entry points
-
-// get an array containing info about all doctors
+// retrieve data about all the doctors
+// result returned as a JSON array
 app.get("/doctors", function(req, res) {
-    // use orderByRaw because knex cannot handle case insensitive ordering
     let myQuery = sqlDb("doctors").orderByRaw('surname, name')
         .then(result => {
             res.send(JSON.stringify(result));
         })
 })
 
-// get an array containing info about all locations
+// retrieve data about all the locations
+// result returned as a JSON array
 app.get("/locations", function(req, res) {
-    // use orderByRaw because knex cannot handle case insensitive ordering
     let myQuery = sqlDb("locations")
         .then(result => {
             res.send(JSON.stringify(result));
         })
 })
 
-// given a doctor id, get all info about that doctor
+// given a doctor id, retrieve all data about that doctor
+// result returned as a JSON array with a single element
 app.get("/doctors/:id", function(req, res) {
     let myQuery = sqlDb("doctors");
     myQuery.where("id", req.params.id)
@@ -259,7 +263,8 @@ app.get("/doctors/:id", function(req, res) {
         })
 })
 
-// given a service id, get all info about that service
+// given a service id, retrieve all data about that service
+// result returned as a JSON array with a single element
 app.get("/services/:id", function(req, res) {
     let myQuery = sqlDb("services");
     myQuery.where("id", req.params.id)
@@ -268,7 +273,8 @@ app.get("/services/:id", function(req, res) {
         })
 })
 
-// given a locations id, get all info about that location
+// given a location id, retrieve all data about that location
+// result returned as a JSON array with a single element
 app.get("/locations/:id", function(req, res) {
     let myQuery = sqlDb("locations");
     myQuery.where("id", req.params.id)
@@ -278,7 +284,8 @@ app.get("/locations/:id", function(req, res) {
 })
 
 
-// retrieve doctors working in the service with the id passed as parameter
+// given a service id, retrieve data of the doctors working in it
+// result returned as a JSON array
 app.get("/doctorsbyservice/:id", function(req, res) {
     let myQuery = sqlDb("doctors");
     myQuery.select().where("serviceId", req.params.id)
@@ -288,7 +295,8 @@ app.get("/doctorsbyservice/:id", function(req, res) {
 })
 
 
-// retrieve data of the services located in a certain location
+// given a location id, retrieve data of the services located in a that location
+// result returned as a JSON array
 app.get("/servicesbylocation/:id", function(req, res) {
     let myQuery = sqlDb.select().from("services").whereIn("id", function() {
             this.select("serviceId").from("servicesLocations").where("locationId", req.params.id);
@@ -299,7 +307,8 @@ app.get("/servicesbylocation/:id", function(req, res) {
 })
 
 
-// retrieve data of the locations in which a service (id) exist 
+// given a service id, retrieve data of the locations in which that service exists 
+// result returned as a JSON array
 app.get("/locationsbyservice/:id", function(req, res) {
     let myQuery = sqlDb.select().from("locations").whereIn("id", function() {
             this.select("locationId").from("servicesLocations").where("serviceId", req.params.id);
@@ -345,21 +354,13 @@ app.post('/contactForm', function(req, res) {
 });
 
 
-// get an array (of a single element) containing a single "who we are" text field
-app.get("/whoweare", function(req, res) {
-    // retrieve the whole table, because it contains only 1 entry
-    let myQuery = sqlDb("whoweare")
-        .then(result => {
-            res.send(JSON.stringify(result));
-        })
-})
-
 /////////////////////////////////////////////
 /////////////////// INIT ////////////////////
 /////////////////////////////////////////////
 
-let serverPort = process.env.PORT || 5000;
+// instantiate the app
 
+let serverPort = process.env.PORT || 5000;
 app.set("port", serverPort);
 
 initSqlDB();
