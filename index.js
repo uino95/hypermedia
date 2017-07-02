@@ -328,7 +328,7 @@ app.post('/contactForm', function(req, res) {
     var mailOptions = {
         from: '"' + req.body.name + '" <clinic.pms@gmail.com>', // sender address
         to: req.body.mail, // list of receivers
-        subject: 'Hello ✔' + req.body.subject, // Subject line
+        subject: req.body.subject, // Subject line
         html: '<p>Message: ' + req.body.message + '</p>' // html body
     };
 
