@@ -12,9 +12,9 @@ const process = require("process");
 const nodemailer = require("nodemailer");
 
 
-/////////////////////////////////////////////
-////////////////// INIT DB //////////////////
-/////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////// INIT DB /////////////////////
+////////////////////////////////////////////////
 
 // get json files that contains data to populate db
 let doctorsList = require("./other/doctorsdata.json");
@@ -174,9 +174,6 @@ function initServicesLocationsTable() {
                     table.integer("serviceId");
                     table.integer("locationId");
                     table.primary(["serviceId", "locationId"]);
-                    // set both as foreign key
-                    table.foreign("serviceId").references("services.id");
-                    table.foreign("locationId").references("locations.id");
                 })
                 .then(() => {
                     return Promise.all(
