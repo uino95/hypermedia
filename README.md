@@ -2,6 +2,7 @@
 
 Heroku URL: https://polimi-hyp-2017-team-10494309.herokuapp.com
 
+Bitbucket Repo URL: https://bitbucket.org/polimi-hyp-2017-team-10494309/polimi-hyp-2017-project/
 
 **NOTE**: current implementation of the input form (https://polimi-hyp-2017-team-10494309.herokuapp.com/index.html#sky-form3) has a slightly counter-intuitive behavior, in order to make it easier to test. The input email address is used as recipient of the message instead of sender. In this way a tester is able to easily verify the behavior of the feature. 
 
