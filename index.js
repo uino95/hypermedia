@@ -174,9 +174,6 @@ function initServicesLocationsTable() {
                     table.integer("serviceId");
                     table.integer("locationId");
                     table.primary(["serviceId", "locationId"]);
-                    // set both as foreign key
-                    //table.foreign("serviceId").references("services.id");
-                    //table.foreign("locationId").references("locations.id");
                 })
                 .then(() => {
                     return Promise.all(
